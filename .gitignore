@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+vosk-model-small-de-0.15/
+vosk-model-small-de-0.15.zip

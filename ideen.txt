@@ -1,0 +1,3 @@
+emotionen seperat abspeichern. eine variation davon und sie dann global abrufbar machen 
+prefixes was es sagen soll mit der auf bestimmte fragen die man ihm stellt
+winken
