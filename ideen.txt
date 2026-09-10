@@ -1,3 +1,4 @@
 emotionen seperat abspeichern. eine variation davon und sie dann global abrufbar machen 
 prefixes was es sagen soll mit der auf bestimmte fragen die man ihm stellt
 winken
+face detection durch face lanbdmarker ersetzen. den folge punkt der landmarks herausfinden. zum biepiel der nase soll er folgen

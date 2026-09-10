@@ -34,6 +34,11 @@ YAW_DEADZONE_DEG = 3.0
 PITCH_DEADZONE_DEG = 3.0
 MIN_COMMAND_INTERVAL = 0.3
 
+# The body turns horizontally with the head, but lagging behind: every command
+# the body eases a fraction of the way toward the current head yaw. Smaller
+# alpha = more delay. The body only follows yaw (horizontal), never pitch.
+BODY_FOLLOW_ALPHA = 0.3
+
 
 def categorize_size(box_area: float, frame_area: float) -> str:
     ratio = box_area / frame_area
@@ -46,6 +51,7 @@ def categorize_size(box_area: float, frame_area: float) -> str:
 def mover_loop(mini, lock, desired, stop_event):
     last_sent = {"yaw": None, "pitch": None, "size_label": None}
     last_sent_time = 0.0
+    body_yaw = 0.0  # lags behind the head yaw for a delayed body turn
 
     while not stop_event.is_set():
         with lock:
@@ -60,7 +66,30 @@ def mover_loop(mini, lock, desired, stop_event):
         enough_time_passed = time.monotonic() - last_sent_time > MIN_COMMAND_INTERVAL
 
         if (category_changed or moved_enough) and enough_time_passed:
-            play_emotion(mini, SIZE_TO_EMOTION[size_label], yaw=yaw, pitch=pitch)
+            if size_label == "nah":
+                # Face very close: lean back and retract the antennas.
+                pose = create_head_pose(z=-30, mm=True, yaw=yaw, pitch=pitch, degrees=True)
+                antennas = ANTENNAS_RETRACTED_DEG
+                duration = 1.0
+            elif size_label == "mittel":
+                pose = create_head_pose(yaw=yaw, pitch=pitch, degrees=True)
+                antennas = ANTENNAS_MIDDLE_DEG
+                duration = 1.0
+            else:
+                pose = create_head_pose(yaw=yaw, pitch=pitch, degrees=True)
+                antennas = ANTENNAS_NORMAL_DEG
+                duration = 0.1
+
+            # Body eases toward the head yaw -> follows horizontally, delayed.
+            body_yaw += (yaw - body_yaw) * BODY_FOLLOW_ALPHA
+
+            mini.goto_target(
+                head=pose,
+                antennas=np.deg2rad(antennas),
+                duration=duration,
+                method="minjerk",
+                body_yaw=np.deg2rad(body_yaw),
+            )
 
             last_sent = {"yaw": yaw, "pitch": pitch, "size_label": size_label}
             last_sent_time = time.monotonic()

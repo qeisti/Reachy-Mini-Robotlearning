@@ -34,6 +34,17 @@ EMOTIONS = {
         {"head": {"yaw": 20, "pitch": -10, "z": 5, "mm": True}, "antennas": [-90, 30], "duration": 0.5},
         {"head": {"yaw": -20, "pitch": -10, "z": 5, "mm": True}, "antennas": [30, -90], "duration": 0.5},
     ],
+    # Wave: keeps following the tracked face (head yaw/pitch come from the
+    # detection) while both antennas flap 0 -> -90 -> 0 twice. Uses
+    # "antenna_sequence" instead of "antennas" so play_emotion runs the
+    # keyframes in order rather than as a single move.
+    "winken": [
+        {
+            "head": {"yaw": 0, "pitch": -5, "z": 5, "mm": True},
+            "antenna_sequence": [[0, 0], [-90, 90], [0, 0], [-90, 90], [0, 0]],
+            "duration": 0.25,
+        },
+    ],
 }
 
 
@@ -56,6 +67,20 @@ def play_emotion(mini, name: str, yaw: float | None = None, pitch: float | None 
             head["pitch"] = pitch
 
     pose = create_head_pose(degrees=True, **head)
+
+    # Multi-step emotions (e.g. winken) flap the antennas through a list of
+    # keyframes. goto_target blocks until each move finishes, so a plain loop
+    # plays the sequence. The head pose stays fixed (still following the face).
+    if "antenna_sequence" in variant:
+        for antennas in variant["antenna_sequence"]:
+            mini.goto_target(
+                head=pose,
+                antennas=np.deg2rad(antennas),
+                duration=variant["duration"],
+                method="minjerk",
+            )
+        return
+
     mini.goto_target(
         head=pose,
         antennas=np.deg2rad(variant["antennas"]),
