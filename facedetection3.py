@@ -48,7 +48,7 @@ PITCH_DEADZONE_DEG = 3.0
 MIN_COMMAND_INTERVAL = 0.3
 
 # Body dreht horizontal verzoegert mit dem Kopf mit (kleiner alpha = mehr Delay).
-BODY_FOLLOW_ALPHA = 0.3
+BODY_FOLLOW_ALPHA = 0.5
 
 # --- Emotion aus Blendshapes (aus mouthdetection) ---------------------------
 EMOTION_BLENDSHAPES = {
