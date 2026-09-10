@@ -39,16 +39,12 @@ SIZE_CATEGORIES = [
     (0.0, "weit"),
 ]
 
-ANTENNAS_NORMAL_DEG = [-30, 20]
-ANTENNAS_MIDDLE_DEG = [-120, 110]
-ANTENNAS_RETRACTED_DEG = [-180, 180]
-
-YAW_DEADZONE_DEG = 3.0
-PITCH_DEADZONE_DEG = 3.0
-MIN_COMMAND_INTERVAL = 0.3
+# Glaettung des Blickziels (kleiner alpha = traeger/weicher, 1.0 = ungefiltert).
+SMOOTHING_ALPHA = 0.4
 
 # Body dreht horizontal verzoegert mit dem Kopf mit (kleiner alpha = mehr Delay).
-BODY_FOLLOW_ALPHA = 0.5
+BODY_FOLLOW_ALPHA = 0.007
+
 
 # --- Emotion aus Blendshapes (aus mouthdetection) ---------------------------
 EMOTION_BLENDSHAPES = {
@@ -57,7 +53,7 @@ EMOTION_BLENDSHAPES = {
     "ueberrascht": ["jawOpen", "eyeWideLeft", "eyeWideRight", "browInnerUp"],
     "wuetend": ["browDownLeft", "browDownRight", "noseSneerLeft", "noseSneerRight"],
 }
-EMOTION_THRESHOLD = 0.3
+EMOTION_THRESHOLD = 0.2
 
 # Erkannte Gesichts-Emotion -> Roboter-Emotion.
 EMOTION_REACTIONS = {
@@ -96,55 +92,40 @@ def categorize_size(rect_area_ratio: float) -> str:
 
 
 def mover_loop(mini, lock, desired, stop_event):
-    last_sent = {"yaw": None, "pitch": None, "size_label": None, "emotion": None}
-    last_sent_time = 0.0
     body_yaw = 0.0  # laeuft dem Kopf-Yaw hinterher
+    smoothed_yaw = 0.0
+    smoothed_pitch = 0.0
 
+    # set_target() setzt die Zielpose sofort und nicht-blockierend (anders als
+    # goto_target(), das fuer "duration" Sekunden blockiert und dabei jede
+    # Bewegung als eigene Minjerk-Kurve mit Geschwindigkeit 0 an beiden Enden
+    # faehrt). Bei einem bewegten Ziel reiht das viele Stop-Start-Segmente
+    # aneinander -> ruckartig. Stattdessen wird hier bei jedem Tick die
+    # (geglaettete) Zielpose direkt gesetzt; der Daemon regelt kontinuierlich
+    # dorthin, wie bei der eingebauten SDK-Gesichtsverfolgung.
     while not stop_event.is_set():
         with lock:
             yaw, pitch = desired["yaw"], desired["pitch"]
             size_label, emotion = desired["size_label"], desired["emotion"]
 
-        # Antennen haengen auch von der Emotion ab (nur bei weit), daher bei
-        # Emotionswechsel ebenfalls neu senden.
-        category_changed = (
-            size_label != last_sent["size_label"] or emotion != last_sent["emotion"]
+        smoothed_yaw += (yaw - smoothed_yaw) * SMOOTHING_ALPHA
+        smoothed_pitch += (pitch - smoothed_pitch) * SMOOTHING_ALPHA
+
+        # Antennen zeigen die erkannte Emotion bei jeder Distanz.
+        antennas = emotion_antennas(EMOTION_REACTIONS.get(emotion, "neutral"))
+
+        if size_label == "nah":
+            pose = create_head_pose(z=-30, mm=True, yaw=smoothed_yaw, pitch=smoothed_pitch, degrees=True)
+        else:
+            pose = create_head_pose(yaw=smoothed_yaw, pitch=smoothed_pitch, degrees=True)
+
+        body_yaw += (smoothed_yaw - body_yaw) * BODY_FOLLOW_ALPHA
+
+        mini.set_target(
+            head=pose,
+            antennas=np.deg2rad(antennas),
+            body_yaw=np.deg2rad(body_yaw),
         )
-        moved_enough = (
-            last_sent["yaw"] is None
-            or abs(yaw - last_sent["yaw"]) > YAW_DEADZONE_DEG
-            or abs(pitch - last_sent["pitch"]) > PITCH_DEADZONE_DEG
-        )
-        enough_time_passed = time.monotonic() - last_sent_time > MIN_COMMAND_INTERVAL
-
-        if (category_changed or moved_enough) and enough_time_passed:
-            if size_label == "nah":
-                # nah/mittel: Emotion ignorieren, normales Distanz-Tracking.
-                pose = create_head_pose(z=-30, mm=True, yaw=yaw, pitch=pitch, degrees=True)
-                antennas = ANTENNAS_RETRACTED_DEG
-                duration = 1.0
-            elif size_label == "mittel":
-                pose = create_head_pose(yaw=yaw, pitch=pitch, degrees=True)
-                antennas = ANTENNAS_MIDDLE_DEG
-                duration = 1.0
-            else:
-                # weit: Roboter nimmt die Antennen der erkannten Emotion an.
-                pose = create_head_pose(yaw=yaw, pitch=pitch, degrees=True)
-                antennas = emotion_antennas(EMOTION_REACTIONS.get(emotion, "neutral"))
-                duration = 0.5
-
-            body_yaw += (yaw - body_yaw) * BODY_FOLLOW_ALPHA
-
-            mini.goto_target(
-                head=pose,
-                antennas=np.deg2rad(antennas),
-                duration=duration,
-                method="minjerk",
-                body_yaw=np.deg2rad(body_yaw),
-            )
-
-            last_sent = {"yaw": yaw, "pitch": pitch, "size_label": size_label, "emotion": emotion}
-            last_sent_time = time.monotonic()
 
         time.sleep(0.02)
 
@@ -158,8 +139,9 @@ options = FaceLandmarkerOptions(
 detector = FaceLandmarker.create_from_options(options)
 
 cap = cv2.VideoCapture(0)
+last_printed_emotion = None
 
-with ReachyMini(media_backend="no_media") as mini:
+with ReachyMini(media_backend="no_media", automatic_body_yaw=False) as mini:
     state_lock = threading.Lock()
     desired_state = {"yaw": 0.0, "pitch": 0.0, "size_label": "weit", "emotion": "neutral"}
     stop_event = threading.Event()
@@ -197,6 +179,9 @@ with ReachyMini(media_backend="no_media") as mini:
 
             # Emotion (nur Anzeige, damit sie das Tracking nicht ueberschreibt).
             emotion, score = detect_emotion(result.face_blendshapes[0])
+            if emotion != last_printed_emotion:
+                print(f"Emotion: {emotion} ({score:.2f})")
+                last_printed_emotion = emotion
 
             # --- Zeichnen ---
             x1, y1 = int(x_min * frame_w), int(y_min * frame_h)
