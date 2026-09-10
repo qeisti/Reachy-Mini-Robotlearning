@@ -6,8 +6,8 @@ import mediapipe as mp
 from mediapipe.tasks.python import BaseOptions
 from mediapipe.tasks.python.vision import FaceDetector, FaceDetectorOptions
 from reachy_mini import ReachyMini
-from reachy_mini.utils import create_head_pose
-import numpy as np
+
+from emotions import play_emotion
 
 # Maximum head rotation (in degrees) when the face is at the edge of the frame.
 MAX_YAW_DEG = 30.0
@@ -20,9 +20,12 @@ SIZE_CATEGORIES = [
     (0.0, "weit"),
 ]
 
-ANTENNAS_NORMAL_DEG = [-30, 20]
-ANTENNAS_MIDDLE_DEG = [-120, 110]
-ANTENNAS_RETRACTED_DEG = [-180, 180]
+# Distance category -> emotion played from emotions.py.
+SIZE_TO_EMOTION = {
+    "nah": "angst",
+    "mittel": "vorsichtig",
+    "weit": "neutral",
+}
 
 # How much yaw/pitch has to change before a new command is sent, and the
 # minimum time between two goto_target calls, so the camera loop never
@@ -57,26 +60,7 @@ def mover_loop(mini, lock, desired, stop_event):
         enough_time_passed = time.monotonic() - last_sent_time > MIN_COMMAND_INTERVAL
 
         if (category_changed or moved_enough) and enough_time_passed:
-            if size_label == "nah":
-                # Face very close: lean back and retract the antennas.
-                pose = create_head_pose(z=-30, mm=True, yaw=yaw, pitch=pitch, degrees=True)
-                antennas = ANTENNAS_RETRACTED_DEG
-                duration = 1.0
-            elif size_label == "mittel":
-                pose = create_head_pose(yaw=yaw, pitch=pitch, degrees=True)
-                antennas = ANTENNAS_MIDDLE_DEG
-                duration = 1.0
-            else:
-                pose = create_head_pose(yaw=yaw, pitch=pitch, degrees=True)
-                antennas = ANTENNAS_NORMAL_DEG
-                duration = 0.1
-
-            mini.goto_target(
-                head=pose,
-                antennas=np.deg2rad(antennas),
-                duration=duration,
-                method="minjerk",
-            )
+            play_emotion(mini, SIZE_TO_EMOTION[size_label], yaw=yaw, pitch=pitch)
 
             last_sent = {"yaw": yaw, "pitch": pitch, "size_label": size_label}
             last_sent_time = time.monotonic()
