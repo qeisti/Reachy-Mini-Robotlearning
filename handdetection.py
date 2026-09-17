@@ -21,12 +21,31 @@ HAND_CONNECTIONS = [(c.start, c.end) for c in HandLandmarksConnections.HAND_CONN
 WRIST = 0
 MIDDLE_MCP = 9
 
+# Custom "mittelfinger": nur der Mittelfinger ist gestreckt, die anderen sind
+# eingeklappt. Eingeklappte Gelenke liegen naeher am Handgelenk als das PIP des
+# gestreckten Mittelfingers (10), das hier als Referenzdistanz dient.
+MIDDLE_PIP = 10
+FOLDED_LANDMARKS = [6, 14, 20]  # Zeigefinger-PIP, Ringfinger-PIP, kleiner Finger-Tip
+
+
+def is_middle_finger(landmarks):
+    def dist_to_wrist(idx):
+        return ((landmarks[idx].x - landmarks[WRIST].x) ** 2
+                + (landmarks[idx].y - landmarks[WRIST].y) ** 2) ** 0.5
+
+    ref = dist_to_wrist(MIDDLE_PIP)
+    return all(dist_to_wrist(i) < ref for i in FOLDED_LANDMARKS)
+
 # Which robot emotion to play for a recognized gesture (built-in + custom).
 GESTURE_EMOTIONS = {
     "Thumb_Up": "freude",
     "Thumb_Down": "traurig",
     "winken": "winken",
+    "mittelfinger": "traurig",
 }
+
+# Sekunden ohne erkannte Geste, bis der Roboter wieder auf neutral faehrt.
+GESTURE_TIMEOUT = 2.0
 
 
 class WaveDetector:
@@ -110,6 +129,8 @@ cap = cv2.VideoCapture(0)
 with ReachyMini(media_backend="no_media") as mini:
     wave = WaveDetector()
     last_gesture = None
+    last_gesture_time = time.monotonic()
+    is_neutral = True
 
     while True:
         ok, frame = cap.read()
@@ -122,22 +143,32 @@ with ReachyMini(media_backend="no_media") as mini:
         result = recognizer.recognize(mp_image)
 
         triggered = None  # gesture that should fire an emotion this frame
+        gesture_seen = False  # eine bekannte Geste ist gerade im Bild
 
         for hand_idx, landmarks in enumerate(result.hand_landmarks):
             gestures = result.gestures[hand_idx]
             name = gestures[0].category_name if gestures else "None"
+
+           # coords = " ".join(f"{i}:({lm.x:.3f},{lm.y:.3f},{lm.z:.3f})"
+           #                   for i, lm in enumerate(landmarks))
+           # print(f"Hand {hand_idx} [{name}]: {coords}")
 
             # Custom "winken" gesture from the first hand's motion. Palm length
             # (0 -> 9) gives the distance-invariant scale for the thresholds.
             if hand_idx == 0:
                 palm = ((landmarks[MIDDLE_MCP].x - landmarks[WRIST].x) ** 2
                         + (landmarks[MIDDLE_MCP].y - landmarks[WRIST].y) ** 2) ** 0.5
+                if is_middle_finger(landmarks):
+                    name = "mittelfinger"
                 if wave.update(landmarks[WRIST].x, palm):
                     name = "winken"
                     triggered = "winken"           # wave fires immediately
                 elif name != last_gesture:
                     triggered = name               # thumb up/down fire on change
                 last_gesture = name
+
+            if name in GESTURE_EMOTIONS:
+                gesture_seen = True
 
             pts = [(int(lm.x * frame_w), int(lm.y * frame_h)) for lm in landmarks]
             for start, end in HAND_CONNECTIONS:
@@ -148,10 +179,19 @@ with ReachyMini(media_backend="no_media") as mini:
             wx, wy = pts[0]
             cv2.putText(frame, name, (wx, wy - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2)
 
+        if gesture_seen:
+            last_gesture_time = time.monotonic()
+
         emotion = GESTURE_EMOTIONS.get(triggered)
         if emotion is not None:
             print(f"{triggered} -> {emotion}")
             threading.Thread(target=play_async, args=(mini, emotion), daemon=True).start()
+            is_neutral = False
+        elif not is_neutral and time.monotonic() - last_gesture_time > GESTURE_TIMEOUT:
+            print("keine Geste -> neutral")
+            threading.Thread(target=play_async, args=(mini, "neutral"), daemon=True).start()
+            is_neutral = True
+            last_gesture = None  # gleiche Geste soll danach wieder ausloesen
 
         cv2.imshow("Gesture Detection", frame)
         if cv2.waitKey(1) & 0xFF == ord("q"):
