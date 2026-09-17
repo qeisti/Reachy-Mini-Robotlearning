@@ -53,23 +53,38 @@ EMOTION_BLENDSHAPES = {
     "ueberrascht": ["jawOpen", "eyeWideLeft", "eyeWideRight", "browInnerUp"],
     "wuetend": ["browDownLeft", "browDownRight", "noseSneerLeft", "noseSneerRight"],
 }
-EMOTION_THRESHOLD = 0.2
+EMOTION_THRESHOLD = 0.1
 
 # Erkannte Gesichts-Emotion -> Roboter-Emotion.
 EMOTION_REACTIONS = {
     "neutral": "neutral",
     "freude": "freude",
     "traurig": "traurig",
-    "wuetend": "traurig",
+    "wuetend": "angst",
     "ueberrascht": "neugierig",
 }
 
-# Die Gesichts-Emotion wirkt NUR bei weit: dann uebernimmt der Roboter die
-# Antennen der erkannten Emotion. Bei nah/mittel wird die Gesichts-Emotion
-# komplett ignoriert und nur das normale Distanz-Tracking gefahren.
-def emotion_antennas(robot_emotion):
-    """Antennenwinkel (Grad) der ersten Variante einer Roboter-Emotion."""
-    return EMOTIONS.get(robot_emotion, EMOTIONS["neutral"])[0]["antennas"]
+# Distanz entscheidet, welche Roboter-Emotion gefahren wird: nah -> immer
+# "angst", mittel -> immer "vorsichtig" (Gesichts-Emotion wird dabei
+# ignoriert), weit -> Reaktion auf die erkannte Gesichts-Emotion.
+DISTANCE_EMOTIONS = {"nah": "angst", "mittel": "vorsichtig"}
+
+# Sekunden ohne erkanntes Gesicht, bis der Roboter auf neutral zurueckfaehrt.
+FACE_LOST_TIMEOUT = 1.0
+
+
+def resolve_robot_emotion(emotion, size_label):
+    if size_label in DISTANCE_EMOTIONS:
+        return DISTANCE_EMOTIONS[size_label]
+    return EMOTION_REACTIONS.get(emotion, "neutral")
+
+
+def emotion_pose_extras(robot_emotion):
+    """Antennen (Grad) + z/mm der ersten Variante. yaw/pitch der Variante
+    werden bewusst ignoriert - die kommen immer aus dem Face-Tracking."""
+    variant = EMOTIONS.get(robot_emotion, EMOTIONS["neutral"])[0]
+    head = variant["head"]
+    return variant["antennas"], head.get("z", 0), head.get("mm", True)
 
 
 def detect_emotion(blendshapes):
@@ -106,18 +121,15 @@ def mover_loop(mini, lock, desired, stop_event):
     while not stop_event.is_set():
         with lock:
             yaw, pitch = desired["yaw"], desired["pitch"]
-            size_label, emotion = desired["size_label"], desired["emotion"]
+            robot_emotion = desired["robot_emotion"]
 
         smoothed_yaw += (yaw - smoothed_yaw) * SMOOTHING_ALPHA
         smoothed_pitch += (pitch - smoothed_pitch) * SMOOTHING_ALPHA
 
-        # Antennen zeigen die erkannte Emotion bei jeder Distanz.
-        antennas = emotion_antennas(EMOTION_REACTIONS.get(emotion, "neutral"))
-
-        if size_label == "nah":
-            pose = create_head_pose(z=-30, mm=True, yaw=smoothed_yaw, pitch=smoothed_pitch, degrees=True)
-        else:
-            pose = create_head_pose(yaw=smoothed_yaw, pitch=smoothed_pitch, degrees=True)
+        # Emotion liefert Antennen und Kopfhoehe; yaw/pitch bleiben Tracking.
+        antennas, emotion_z, z_mm = emotion_pose_extras(robot_emotion)
+        pose = create_head_pose(z=emotion_z, mm=z_mm, yaw=smoothed_yaw,
+                                pitch=smoothed_pitch, degrees=True)
 
         body_yaw += (smoothed_yaw - body_yaw) * BODY_FOLLOW_ALPHA
 
@@ -139,11 +151,12 @@ options = FaceLandmarkerOptions(
 detector = FaceLandmarker.create_from_options(options)
 
 cap = cv2.VideoCapture(0)
-last_printed_emotion = None
+last_printed_state = None
+last_seen = time.time()
 
 with ReachyMini(media_backend="no_media", automatic_body_yaw=False) as mini:
     state_lock = threading.Lock()
-    desired_state = {"yaw": 0.0, "pitch": 0.0, "size_label": "weit", "emotion": "neutral"}
+    desired_state = {"yaw": 0.0, "pitch": 0.0, "robot_emotion": "neutral"}
     stop_event = threading.Event()
 
     mover_thread = threading.Thread(
@@ -177,11 +190,12 @@ with ReachyMini(media_backend="no_media", automatic_body_yaw=False) as mini:
             rect_area_ratio = (x_max - x_min) * (y_max - y_min)
             size_label = categorize_size(rect_area_ratio)
 
-            # Emotion (nur Anzeige, damit sie das Tracking nicht ueberschreibt).
             emotion, score = detect_emotion(result.face_blendshapes[0])
-            if emotion != last_printed_emotion:
-                print(f"Emotion: {emotion} ({score:.2f})")
-                last_printed_emotion = emotion
+            robot_emotion = resolve_robot_emotion(emotion, size_label)
+            last_seen = time.time()
+            if (emotion, size_label) != last_printed_state:
+                print(f"{size_label} | {emotion} ({score:.2f}) -> {robot_emotion}")
+                last_printed_state = (emotion, size_label)
 
             # --- Zeichnen ---
             x1, y1 = int(x_min * frame_w), int(y_min * frame_h)
@@ -193,7 +207,7 @@ with ReachyMini(media_backend="no_media", automatic_body_yaw=False) as mini:
             cv2.circle(frame, (cx, cy), 5, (0, 0, 255), -1)
             for idx in LIP_INDICES:
                 cv2.circle(frame, (int(landmarks[idx].x * frame_w), int(landmarks[idx].y * frame_h)), 2, (0, 0, 255), -1)
-            cv2.putText(frame, f"{size_label} | {emotion} {score:.2f}", (20, 40),
+            cv2.putText(frame, f"{size_label} | {emotion} {score:.2f} -> {robot_emotion}", (20, 40),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2)
 
             # Blickziel -> yaw/pitch (Offset vom Bildzentrum, auf Bereich skaliert).
@@ -205,8 +219,16 @@ with ReachyMini(media_backend="no_media", automatic_body_yaw=False) as mini:
             with state_lock:
                 desired_state["yaw"] = yaw
                 desired_state["pitch"] = pitch
-                desired_state["size_label"] = size_label
-                desired_state["emotion"] = emotion
+                desired_state["robot_emotion"] = robot_emotion
+
+        elif last_seen is not None and time.time() - last_seen > FACE_LOST_TIMEOUT:
+            with state_lock:
+                desired_state["yaw"] = 0.0
+                desired_state["pitch"] = 0.0
+                desired_state["robot_emotion"] = "neutral"
+            last_seen = None
+            last_printed_state = None
+            print("kein Gesicht -> neutral")
 
         cv2.imshow("Face Landmark Tracking", frame)
         if cv2.waitKey(1) & 0xFF == ord("q"):
