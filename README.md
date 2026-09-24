@@ -78,6 +78,8 @@ Optional für Sprache: `vosk-model-small-de-0.15` nach `models/` entpacken.
 
 ## Starten
 
+Schritt-für-Schritt-Ablauf als Flowchart: [docs/ABLAUF.md](docs/ABLAUF.md)
+
 ```bash
 # Terminal 1
 reachy-mini-daemon --sim
