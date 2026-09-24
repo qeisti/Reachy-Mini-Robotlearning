@@ -35,6 +35,11 @@ EMOTION_BLENDSHAPES = {
 }
 EMOTION_THRESHOLD = 0.1
 
+# --- Roboter -----------------------------------------------------------------
+# Media-Backend fuer --source reachy (Kamera des Roboters). Laeuft der Code direkt
+# auf dem Reachy Mini Wireless und liefert "default" keine Bilder, "local" probieren.
+REACHY_MEDIA_BACKEND = "default"
+
 # --- Motion-Layer ------------------------------------------------------------
 MOTION_RATE_HZ = 50
 SMOOTHING_ALPHA = 0.4       # Glaettung Blickziel (1.0 = ungefiltert)

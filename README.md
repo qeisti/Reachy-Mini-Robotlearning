@@ -34,6 +34,8 @@ Kamera/Video ─► Wahrnehmung (MediaPipe, 30 fps) ─► EventDetector ─► 
 * Die Tools des Agenten legen die Aktion **sofort** in die Motion-Queue
   (`return_direct=True`, also kein zweiter LLM-Aufruf für eine Abschlussantwort).
 
+**Schritt-für-Schritt-Plan mit allen Terminal-Befehlen (Simulation → Reachy Mini): [DURCHFUEHRUNGSPLAN.md](DURCHFUEHRUNGSPLAN.md)**
+
 ## Ordnerstruktur
 
 ```

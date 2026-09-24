@@ -37,7 +37,9 @@ class ReachyBackend(RobotBackend):
     def open(self) -> None:
         from reachy_mini import ReachyMini
 
-        media = "default" if self.use_camera else "no_media"
+        from . import config
+
+        media = config.REACHY_MEDIA_BACKEND if self.use_camera else "no_media"
         self._ctx = ReachyMini(media_backend=media, automatic_body_yaw=False)
         self.mini = self._ctx.__enter__()
 

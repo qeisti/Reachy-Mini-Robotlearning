@@ -35,7 +35,7 @@ INK, INK2, GRID = "#0b0b0b", "#52514e", "#e4e3df"
 
 
 # --- Laden ---------------------------------------------------------------------
-def load(sessions: list[Path]) -> tuple[pd.DataFrame, pd.DataFrame]:
+def load(sessions: list[Path], by_session: bool = False) -> tuple[pd.DataFrame, pd.DataFrame]:
     ev, res = [], []
     for s in sessions:
         for f in sorted(Path(s).rglob("events.csv")):
@@ -43,6 +43,7 @@ def load(sessions: list[Path]) -> tuple[pd.DataFrame, pd.DataFrame]:
             meta_f = f.parent / "meta.json"
             meta = json.loads(meta_f.read_text(encoding="utf-8")) if meta_f.exists() else {}
             df["run_dir"] = str(f.parent)
+            df["session"] = Path(s).name
             df["model"] = df["model"].fillna(meta.get("model", ""))
             ev.append(df)
             rf = f.parent / "resources.csv"
@@ -57,6 +58,8 @@ def load(sessions: list[Path]) -> tuple[pd.DataFrame, pd.DataFrame]:
     resources = pd.concat(res, ignore_index=True) if res else pd.DataFrame()
     events["label"] = events["policy"].astype(str) + np.where(
         events["model"].fillna("").astype(str) != "", " · " + events["model"].fillna("").astype(str), "")
+    if by_session:  # z. B. Simulation vs. Roboter: gleiche Policy getrennt nach Session
+        events["label"] = events["label"] + " · " + events["session"].astype(str)
     events["lat_decision_ms"] = (events["t_decision"] - events["t_dispatch"]) * 1000
     events["lat_wait_ms"] = (events["t_dispatch"] - events["t_event"]) * 1000
     events["lat_e2e_ms"] = (events["t_motor"] - events["t_frame"]) * 1000
@@ -115,7 +118,7 @@ def summarize(events: pd.DataFrame, resources: pd.DataFrame, ann, threshold_ms: 
     rows = []
     for label, g in events.groupby("label", sort=False):
         pol = g["policy"].iloc[0]
-        r = resources[resources["policy"] == pol] if not resources.empty else pd.DataFrame()
+        r = resources[resources["run_dir"].isin(g["run_dir"].unique())] if not resources.empty else pd.DataFrame()
         row = {
             "label": label, "policy": pol, "model": g["model"].iloc[0] if pd.notna(g["model"].iloc[0]) else "",
             "runs": g["run_dir"].nunique(), "events": len(g),
@@ -302,7 +305,7 @@ def plot_resources(summary: pd.DataFrame, out: Path) -> Path | None:
                edgecolor="white", linewidth=2)
         for xi, v in zip(x, vals):
             ax.text(xi, v, f"{v:.0f}", ha="center", va="bottom", fontsize=7, color=INK)
-        ax.set_xticks(x, [LABELS.get(p, p).split(" ")[0] for p in summary["policy"]], fontsize=7)
+        ax.set_xticks(x, [_nice(lb).split("\n")[0] + ("\n" + lb.split(" · ")[-1] if lb.count(" · ") >= 2 else "") for lb in summary["label"]], fontsize=7)
         ax.set_title(title, fontsize=8, color=INK)
         _style(ax)
     return _save(fig, out, "resources")
@@ -324,7 +327,7 @@ def plot_quality(summary: pd.DataFrame, out: Path) -> Path:
         for xi, v in zip(x, vals):
             ax.text(xi, 0 if np.isnan(v) else v, "n/a" if np.isnan(v) else f"{v:.0f}",
                     ha="center", va="bottom", fontsize=7, color=INK)
-        ax.set_xticks(x, [LABELS.get(p, p).split(" ")[0] for p in summary["policy"]], fontsize=7)
+        ax.set_xticks(x, [_nice(lb).split("\n")[0] + ("\n" + lb.split(" · ")[-1] if lb.count(" · ") >= 2 else "") for lb in summary["label"]], fontsize=7)
         ax.set_title(title, fontsize=8, color=INK)
         ax.set_ylim(0, 110)
         _style(ax, "%" if ax is axes[0] else "")
@@ -441,9 +444,11 @@ def main() -> None:
     ap.add_argument("--threshold-ms", type=float, default=1000.0,
                     help="Kontingenzschwelle fuer die Auswertung (mit Literatur begruenden!)")
     ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--by-session", action="store_true",
+                    help="gleiche Policy aus verschiedenen Sessions getrennt darstellen (z. B. Sim vs. Roboter)")
     args = ap.parse_args()
 
-    events, resources = load(args.sessions)
+    events, resources = load(args.sessions, args.by_session)
     ann = None
     if args.annotations:
         data = json.loads(args.annotations.read_text(encoding="utf-8"))
