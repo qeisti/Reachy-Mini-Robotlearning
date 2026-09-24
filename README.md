@@ -61,6 +61,8 @@ experiments/
 models/                MediaPipe-Modelle (+ Vosk-Modell, nicht im Git)
 legacy/                die ursprünglichen Einzelskripte (lauffähig aus legacy/ heraus)
 tests/                 pytest, inkl. Fake-LLM – läuft ohne Roboter und ohne Ollama
+paper/                 Paper (LaTeX, IEEE): reachy_mini_agent_vs_rules.tex/.pdf, references.bib
+docs/ABLAUF.md         Flowchart: Programm Schritt für Schritt ausführen
 ```
 
 ## Installation

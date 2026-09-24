@@ -1,0 +1,382 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{url}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{blindtext}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+% Create custom colour for text highlighting
+\definecolor{twblue}{HTML}{1f497d}
+\definecolor{structure}{HTML}{1f497d}
+\definecolor{blindtext}{HTML}{D3D3D3}
+
+% --- Hilfsmakros fuer den Entwurf -------------------------------------------
+% \todo{...}     : offener Punkt, im Text rot sichtbar
+% \needcite{...} : hier fehlt noch eine Quelle (Stichwort in eckigen Klammern)
+% Beide Makros VOR der Abgabe entfernen bzw. auf \newcommand{\todo}[1]{} setzen.
+\makeatletter
+\@ifundefined{todo}{}{\let\todo\relax}
+\@ifundefined{needcite}{}{\let\needcite\relax}
+\makeatother
+\DeclareRobustCommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+\DeclareRobustCommand{\needcite}[1]{\textcolor{red}{\textsuperscript{[cite: #1]}}}
+% ----------------------------------------------------------------------------
+
+\title{Approachable by Design: Baby Schema and Emotional\\ Responsiveness as a Low-Threshold Entry Point to Robotics}
+
+\author{\IEEEauthorblockN{Alexander Scheidl}
+}
+
+\maketitle
+
+% Diese sieben Quellen erscheinen als [1]--[7] im Literaturverzeichnis, auch
+% solange sie im Text noch nicht zitiert sind. Sobald ein \cite im Text steht,
+% kann der entsprechende Eintrag hier raus -- die Reihenfolge bestimmt die
+% Nummerierung.
+\nocite{Yim2025Cuteness}
+\nocite{RosenthalvonderPuetten2013}
+\nocite{Rogel2026Reachy}
+\nocite{Saygin2012Uncanny}
+\nocite{Luetkebohle2010Flobi}
+\nocite{Nitsch2014Emotions}
+\nocite{Reis1988Intimacy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+\todo{Abstract zuletzt schreiben, ca. 150--200 Woerter, keine Zitate, keine Formeln.}
+
+\vspace{\baselineskip}
+\color{structure}Der Abstract muss diese drei Punkte abdecken -- je ein bis zwei Saetze:
+\begin{itemize}
+    \item \textbf{Motivation}: Robotik wird alltagsrelevant, der Erstkontakt ist aber von Skepsis gepraegt; aus der Psychologie ist bekannt, dass Kindchenschema und emotionale Reagibilitaet Hemmschwellen senken.
+    \item \textbf{Beitrag}: Umsetzung dieser Mechanismen auf einem Roboter mit stark reduzierten Ausdrucksmitteln (6-DoF-Kopf, zwei Antennen, kein Gesicht), aufgebaut auf Google MediaPipe und Vosk, sowie Vergleich mehrerer Skill-Konfigurationen.
+    \item \textbf{Verifizierbarkeit}: Messung von Reaktionszeit und Wiederholbarkeit ueber vier Konfigurationen auf identischem, aufgezeichnetem Videostimulus.
+\end{itemize}\color{black}
+
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\color{structure}\textit{Ziel: ca. 0,6 Seiten. Fuenf Absaetze, je 3--5 Saetze. Roter Faden: Zugang zur Robotik $\rightarrow$ Hemmschwelle $\rightarrow$ Design als Hebel $\rightarrow$ was fehlt $\rightarrow$ was diese Arbeit tut.}\color{black}
+
+\todo{Absatz 1 -- Thema.} Robots are moving from industrial cells into everyday
+environments, which makes the quality of a first encounter a design problem
+rather than a side effect.\needcite{HRI in everyday settings}
+
+\todo{Absatz 2 -- Motivation.} Psychological research shows that appearance and
+emotional responsiveness systematically shape how approachable an artefact is
+perceived to be: baby-schema features activate reward and caretaking
+responses\needcite{Lorenz/Glocker}, cute stimuli lower
+vigilance\needcite{[1] Yim}, and responsive behaviour drives anthropomorphic
+attribution\needcite{[2] Rosenthal-von der Puetten}.
+
+\todo{Absatz 3 -- Problem.} These effects are usually demonstrated on images,
+videos or on complex humanoid platforms.\needcite{[3] Rogel -- naechstliegende
+Vorarbeit} It is not obvious how far they carry over to a robot whose entire
+expressive channel consists of head pose and two antennas, and which must
+react in real time on commodity hardware.
+
+\todo{Absatz 4 -- Beitrag (den Satz scharf formulieren!).} This paper presents a
+behaviour architecture for the Reachy Mini that deliberately targets the
+mechanisms above. It is built entirely from commodity perception components --
+Google MediaPipe for face and gesture input and Vosk for offline speech
+recognition -- so that the contribution lies in the behaviour layer rather than
+in perception. Four skill configurations of that architecture are evaluated
+with respect to reaction time and repeatability.
+
+\todo{Absatz 5 -- Aufbau.} Section II reviews the relevant background, Section
+III describes platform, implementation and evaluation design, Section IV
+reports the measurements, and Section V concludes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{State of the Art}
+\color{structure}\textit{Ziel: ca. 0,6 Seiten. Hier liegt die gesamte
+psychologische Untermauerung. Wichtig: Der Abschnitt endet mit dem
+"So what" -- was folgt daraus fuer die eigene Umsetzung. Ohne diesen Absatz
+haengt das Kapitel in der Luft.}\color{black}
+
+\subsection{Baby Schema and Perceived Approachability}
+\todo{Kindchenschema: runde Formen, grosse Augen, kleine Nase; Aktivierung des
+Belohnungssystems; Fuersorgemotivation. Senkung der Wachsamkeit und erhoehte
+Annaeherungsbereitschaft durch niedliche Reize.}\needcite{Lorenz, Glocker, [1] Yim}
+
+\subsection{Uncanny Valley and Stylised Design}
+\todo{Warum comicartige, nicht-stereotypische Gestaltung das Uncanny Valley
+umgeht; Bewegungsqualitaet als zweiter Faktor neben Aussehen (Prediction
+Error bei Form-Bewegungs-Mismatch); stilisierte Koepfe als Gegenentwurf.}\needcite{Mori, [4] Saygin, [5] Luetkebohle}
+
+\subsection{Anthropomorphism and Emotional Attribution}
+\todo{Zuschreibung von Absichten an bewegte Objekte; fMRI-Befunde zu Empathie
+gegenueber Robotern; Emotionszuschreibung als systematische Tendenz, nicht als
+Denkfehler; Waerme und Vertrauen bei positivem Gefuehlsausdruck.}\needcite{[2] Rosenthal-von der Puetten, [6] Nitsch}
+
+\subsection{Responsiveness as a Precondition for Bonding}
+\todo{Bindungs-/Intimitaetsmodelle: Naehe entsteht, wenn das Gegenueber zeitnah
+und passend auf gezeigte Emotion eingeht und dabei Verstehen und Fuersorge
+vermittelt. Daraus folgt direkt die Messgroesse Reaktionszeit -- eine
+Reaktion, die zu spaet kommt, wird nicht mehr als Antwort auf das eigene
+Verhalten gelesen.}\needcite{[7] Reis \& Shaver}
+
+\subsection{Real-Time Perception Toolkits}
+\todo{Zwei bis drei Saetze: Warum heute nicht mehr selbst trainiert wird.}
+Modern interactive systems typically rely on pre-trained, CPU-capable
+pipelines rather than on task-specific training. Google
+MediaPipe~\cite{Lugaresi2019MediaPipe} provides such pipelines for face mesh,
+hand and gesture estimation, and Vosk~\cite{Vosk} offers offline speech
+recognition for a range of languages. Both run locally, which keeps latency
+low and avoids any network dependency -- a direct prerequisite for the
+contingency requirement discussed in Section II-D.
+
+\subsection{Expressive Robots with Reduced Degrees of Freedom}
+\todo{Spannweite von anthropomorphen Koepfen mit vielen Gesichtsaktoren bis zu
+Systemen, die Affekt nur ueber Kopfbewegung und Antennen vermitteln. Fuer den
+Reachy Mini selbst: Beobachter bewerten positiven Gefuehlsausdruck als deutlich
+waermer, freundlicher und vertrauenswuerdiger -- damit ist der reduzierte Kanal
+grundsaetzlich ausreichend. Ggf. Keepon und Cozmo ergaenzen.}\needcite{[3] Rogel, [5] Luetkebohle, minimal social robots}
+
+\vspace{\baselineskip}
+\color{structure}\textbf{So what (Pflichtabsatz):}\color{black} \todo{Ein
+Absatz: Die genannten Systeme sind entweder proprietaer, nicht
+rekonfigurierbar oder nicht auf Latenz hin dokumentiert. Daraus ergibt sich
+die Luecke -- eine offene, messbar konfigurierbare Umsetzung auf reduzierter
+Hardware.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Materials and Methods}
+\color{structure}\textit{Ziel: ca. 1,0 Seite. Hier steht, WAS gebaut wurde und
+WARUM -- keine Ergebnisse. Jede Entwurfsentscheidung bekommt einen
+Begruendungssatz mit Rueckverweis auf Abschnitt II.}\color{black}
+
+\subsection{Design Rationale}
+Every design decision described in this section is derived from one of the
+mechanisms reviewed in Section II rather than from engineering convenience.
+Tab.~\ref{tab:rationale} makes this mapping explicit and also states where the
+resulting property is verified in Section IV. \todo{Diese Tabelle ist das
+Herzstueck des Papers -- sie verbindet Psychologie, Umsetzung und Messung.
+Zeilen pruefen und Querverweise anpassen, sobald die Abschnitte final
+nummeriert sind.}
+
+\begin{table}[!h]
+    \centering
+    \setlength{\tabcolsep}{0.35em}
+    {\renewcommand{\arraystretch}{1.25}\footnotesize
+    \begin{tabular}{|p{1.9cm}|p{3.4cm}|p{1.5cm}|}
+        \hline
+        \textbf{Mechanism} & \textbf{Design decision} & \textbf{Verified in} \\ \hline
+        Baby schema, caretaking (II-A) & Stylised morphology; vulnerability shown when personal space is entered (fear at close range) & Sec.~IV-A \\ \hline
+        Lowered vigilance (II-A) & Expression through antennas and head only; no humanoid face to imitate & Sec.~IV-B \\ \hline
+        Uncanny valley (II-B) & Minimum-jerk interpolation, smoothed gaze target, delayed body follow & Sec.~IV-C \\ \hline
+        Anthropomorphic attribution (II-C) & Randomised pose variants instead of deterministic replay & Sec.~IV-D \\ \hline
+        Contingency (II-D) & Decoupled mover thread, non-blocking target updates & Sec.~IV-C \\ \hline
+        Validation and warmth (II-D) & Mirroring of joy; complementary response to anger and surprise & Sec.~IV-A \\ \hline
+    \end{tabular}}
+    \caption{Each design decision is traced back to a psychological mechanism
+    from Section II and forward to the measurement that verifies it.}
+    \label{tab:rationale}
+\end{table}
+
+\subsection{Platform}
+\todo{Reachy Mini: 6-DoF-Kopf (Stewart-Plattform), Body-Yaw, zwei Antennen,
+keine Gliedmassen, kein beweglicher Gesichtsausdruck. Morphologie als gegebene
+Kindchenschema-Grundlage. Daemon/SDK, Ausfuehrung in Simulation bzw. auf
+Hardware.}\needcite{Reachy Mini}
+
+\subsection{Perception}
+All perception is performed on-device. Facial input is provided by the
+\textit{FaceLandmarker} task of Google MediaPipe~\cite{Lugaresi2019MediaPipe},
+which returns 478 facial landmarks together with 52 blendshape coefficients
+per frame; the coefficients are aggregated into four affective categories by
+threshold. Hand input uses the MediaPipe \textit{GestureRecognizer} task for
+static poses, complemented by a custom waving detector. Speech is transcribed
+offline by Vosk~\cite{Vosk} with the small German model.
+
+\todo{Kernidee erklaeren und als eigene Abbildung zeichnen: Ein Rechteck aus
+vier Landmarks (aeussere Augenwinkel, Mundwinkel) liefert gleichzeitig das
+Blickziel (Mittelpunkt) und ein Distanzmass (Flaeche). Das ersetzt eine
+separate Face-Detection-Stufe und spart eine Inferenz pro Frame.}
+
+\subsection{Expression Library}
+\todo{Emotion = Kopfpose + Antennenwinkel + Dauer. Mehrere Pose-Varianten je
+Emotion, zufaellige Auswahl zur Vermeidung mechanischer Wiederholung --
+Begruendung aus Abschnitt II-C.} Tab.~\ref{tab:repertoire} lists the
+implemented set.
+
+\subsection{Behaviour Logic}
+\todo{Emotionszuordnung: Spiegelung bei Freude, komplementaere Reaktion bei
+Wut (Angst) und Ueberraschung (Neugier). Distanzregulation: nah $\rightarrow$
+Angst, mittel $\rightarrow$ vorsichtig, weit $\rightarrow$ Spiegelung der
+erkannten Emotion. Gesten: Winken wird erwidert, waehrend der Kopf weiter
+trackt. Rueckfall auf neutral nach Timeout.}
+
+\subsection{Motion Quality and Concurrency}
+\todo{Mover-Thread entkoppelt Roboterbefehle vom Kameraloop; set\_target statt
+blockierendem goto\_target; Minimum-Jerk-Interpolation\needcite{Flash \& Hogan};
+exponentielle Glaettung des Blickziels; verzoegert nachdrehender Body als
+Traegheitseindruck. Begruendung: biologisch plausible Bewegung als Bedingung
+fuer Anthropomorphismus und gegen das Uncanny Valley.}
+
+\subsection{Software Environment}
+The system runs under Python 3.12. Besides MediaPipe and Vosk, it uses
+OpenCV~\cite{Bradski2000OpenCV} for camera capture and visualisation,
+NumPy~\cite{Harris2020NumPy} for pose arithmetic, and the Reachy Mini SDK,
+which communicates with a daemon process that drives either the physical robot
+or a MuJoCo~\cite{Todorov2012MuJoCo} simulation. \todo{Versionen ergaenzen und
+pruefen, ob die Simulation im Paper ueberhaupt erwaehnt werden soll.}
+
+\subsection{Evaluation Design}
+\color{structure}\textit{Das ist der wichtigste Unterabschnitt -- ohne ihn sind
+die Ergebnisse in Abschnitt IV nicht nachvollziehbar.}\color{black}
+
+\todo{Reproduzierbarer Stimulus: eine einmal aufgezeichnete Videosequenz
+(Person naehert sich, laechelt, winkt, verlaesst das Bild) wird in alle
+Konfigurationen eingespeist, damit Unterschiede dem System und nicht dem
+Input zuzuschreiben sind.} The compared configurations are listed in
+Tab.~\ref{tab:configs}.
+
+\todo{Messpunkte pro Frame mit time.perf\_counter(): $t_0$ Frame gelesen,
+$t_1$ Inferenz fertig, $t_2$ Ziel/Emotion bestimmt, $t_3$ Befehl abgesetzt.
+Metriken: Reaktionszeit $t_3-t_0$ als Median, IQR und p95; Inferenzanteil
+$t_1-t_0$; effektive Bildrate; verworfene Frames. Wiederholbarkeit: zehn
+Durchlaeufe derselben Datei je Konfiguration.}
+
+\todo{Zwei getrennte Wiederholbarkeitsmasse definieren -- auf
+Wahrnehmungsebene (erkannte Emotion je Frame) und auf Ausdrucksebene
+(gewaehlte Pose-Variante). Begruendung, warum das zweite absichtlich nicht
+konstant ist.}
+
+\begin{table}[!h]
+    \centering
+    \setlength{\tabcolsep}{0.4em}
+    {\renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+        \textbf{Cfg} & \textbf{Perception} & \textbf{Concurrency} & \textbf{Extras} \\ \hline
+        K1 & Face detector & single thread & -- \\ \hline
+        K2 & Face detector & mover thread & body follow \\ \hline
+        K3 & Face landmarker & mover thread & emotions, distance \\ \hline
+        K4 & K3 $+$ gestures & two skills & -- \\ \hline
+    \end{tabular}}
+    \caption{The four evaluated skill configurations. K1$\to$K2 isolates the
+    effect of decoupling, K2$\to$K3 the cost of the heavier model, and
+    K3$\to$K4 the behaviour under competing skills.}
+    \label{tab:configs}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experimental Results}
+\color{structure}\textit{Ziel: ca. 0,8--0,9 Seiten und damit der laengste
+Abschnitt. Regel: Was gebaut wurde, steht in III -- hier steht nur, was das
+fertige System beobachtbar tut. Die Diskussion der Zahlen laeuft direkt mit.}\color{black}
+
+\subsection{Realised Behaviour}
+\textit{Verifies rows 1 and 6 of Tab.~\ref{tab:rationale}.}
+\todo{Beschreibender Durchlauf: Person betritt das Bild, naehert sich,
+laechelt, winkt, verschwindet -- und was der Roboter jeweils tut. Kurz halten,
+zwei bis drei Saetze plus Verweis auf eine Bildsequenz im Anhang.}
+
+\subsection{Expressive Repertoire}
+\textit{Verifies row 2 of Tab.~\ref{tab:rationale}: how much affective range
+two antennas and a head actually carry.}
+\todo{Tabelle ausfuellen (siehe Anhang) und im Text auf die Beobachtung eingehen, welche
+Zustaende sich in den Antennenwinkeln nahekommen und daher potenziell
+verwechselbar sind.}
+
+\todo{Falls im Hauptteil doch Platz bleibt: Tabelle aus dem Anhang
+hierher zurueckholen.}
+
+\subsection{Reaction Time}
+\textit{Verifies rows 3 and 5 of Tab.~\ref{tab:rationale}: contingency is a
+stated precondition for attribution and bonding, so latency is not a
+performance footnote here but the technical form of that requirement.}
+\todo{Boxplot der Reaktionszeit ueber K1--K4 einsetzen, dann zwei bis drei
+Saetze Interpretation: wo liegt der Median, wo bricht welche Konfiguration
+ein, welcher Anteil entfaellt auf die Inferenz.} Fig.~\ref{fig:latency} shows
+the distribution across configurations.
+
+\begin{figure}[!h]
+    \centering
+    % TODO: durch eigenen Boxplot ersetzen (als PDF exportieren!)
+    \includegraphics[width=0.7\columnwidth]{images/fh_technikum_wien_logo_4c_cmyk_2020.pdf}
+    % TODO: Caption anpassen, sobald der echte Boxplot eingesetzt ist.
+    \caption{Placeholder. Reaction time per configuration, shown as a box plot
+    over all frames of the recorded stimulus sequence.}
+    \label{fig:latency}
+\end{figure}
+
+\subsection{Repeatability}
+\textit{Verifies row 4 of Tab.~\ref{tab:rationale}.}
+\todo{Tabelle mit Streuungsmassen ueber die zehn Durchlaeufe. Interpretation:
+Wahrnehmung nahezu konstant, Ausdruck bewusst variabel.}
+
+\vspace{\baselineskip}
+\todo{Abschliessender Diskussionsabsatz -- der inhaltlich wichtigste des
+Papers: Die gemessene Reaktionszeit ist die technische Entsprechung der in
+Abschnitt II-D beschriebenen Kontingenzbedingung. Zugleich besteht ein
+Zielkonflikt: Wiederholbarkeit ist auf Wahrnehmungsebene erwuenscht, auf
+Ausdrucksebene unerwuenscht, weil deterministische Wiederholung mechanisch
+wirkt. Vorsichtig formulieren -- ohne Nutzerstudie keine Wirkungsaussage.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary and Outlook}
+\color{structure}\textit{Ziel: ca. 0,25 Seiten, zwei Absaetze.}\color{black}
+
+\todo{Absatz 1 -- Zusammenfassung entlang des roten Fadens: Aus den
+psychologischen Mechanismen (II) wurden Entwurfsentscheidungen abgeleitet
+(Tab.~\ref{tab:rationale}), diese umgesetzt (III) und ihre technischen
+Voraussetzungen gemessen (IV). Klar sagen, was damit gezeigt ist -- dass der
+Roboter die Mechanismen gezielt bedient und die Bedingungen dafuer erfuellt --
+und was nicht: die Wirkung auf Menschen selbst.}
+
+\todo{Absatz 2 -- Ausblick mit Begruendung: (i) Nutzerstudie zur tatsaechlichen
+Wirkung, z.\,B. mit RoSAS\needcite{RoSAS} oder
+Godspeed\needcite{Godspeed}; (ii) Arbitrierungsschicht zwischen Tracking und
+Emotionswiedergabe, da beide auf dieselben Aktoren zugreifen; (iii) Anbindung
+der bereits vorhandenen Spracherkennung.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Literaturverzeichnis
+{\small
+\bibliographystyle{IEEEtranS}
+% IEEEabrv.bib nur laden, wenn es im Projekt liegt -- fehlt es, bricht BibTeX
+% ab und das Literaturverzeichnis bleibt komplett leer. Die Datei enthaelt nur
+% Kurzformen von Zeitschriftennamen, die refs.bib nicht verwendet.
+\bibliography{refs}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende Seite 3 -- alles danach zaehlt nicht zur Seitenvorgabe
+\clearpage
+
+\section*{Appendix}
+\color{twblue}\textbf{Hier hinein, was im Hauptteil keinen Platz hat:}\color{black}
+\begin{table}[!h]
+    \centering
+    \setlength{\tabcolsep}{0.5em}
+    {\renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Emotion} & \textbf{Antennas [$^\circ$]} & \textbf{Head} & \textbf{Dur. [s]} \\ \hline
+        neutral & $-30 / 30$ & . & 1.0 \\ \hline
+        joy & $-90 / 90$ & . & 0.6 \\ \hline
+        fear & $-180 / 180$ & . & 1.0 \\ \hline
+        curious & $-120 / 110$ & . & 1.2 \\ \hline
+        sad & $-10 / 10$ & . & 1.5 \\ \hline
+        % TODO: restliche Emotionen aus emotions.py ergaenzen
+        \ldots & . & . & . \\ \hline
+    \end{tabular}}
+    \caption{Implemented expressive states and their antenna angles.}
+    \label{tab:repertoire}
+\end{table}
+
+\todo{Bildsequenz des Interaktionsablaufs,
+Konfusionsmatrix der Blendshape-Erkennung, Rohwerte der Latenzmessung.}
+
+\end{document}
