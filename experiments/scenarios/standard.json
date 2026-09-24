@@ -1,0 +1,325 @@
+{
+ "description": "Standard-Szenario fuer den Entscheidungs-Benchmark: 36 Ereignisse, 3 s Abstand, alle Ereignistypen mehrfach. Identischer Input fuer alle Policies (ohne Wahrnehmungsrauschen).",
+ "events": [
+  {
+   "t": 1.0,
+   "type": "person_appeared",
+   "data": {
+    "distance": "weit",
+    "emotion": "neutral"
+   }
+  },
+  {
+   "t": 4.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "freude",
+    "previous": "neutral",
+    "score": 0.6,
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 7.0,
+   "type": "gesture",
+   "data": {
+    "gesture": "winken",
+    "emotion": "freude",
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 10.0,
+   "type": "distance_changed",
+   "data": {
+    "distance": "mittel",
+    "previous": "weit",
+    "emotion": "freude"
+   }
+  },
+  {
+   "t": 13.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "ueberrascht",
+    "previous": "freude",
+    "score": 0.4,
+    "distance": "mittel"
+   }
+  },
+  {
+   "t": 16.0,
+   "type": "distance_changed",
+   "data": {
+    "distance": "nah",
+    "previous": "mittel",
+    "emotion": "ueberrascht"
+   }
+  },
+  {
+   "t": 19.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "wuetend",
+    "previous": "ueberrascht",
+    "score": 0.3,
+    "distance": "nah"
+   }
+  },
+  {
+   "t": 22.0,
+   "type": "distance_changed",
+   "data": {
+    "distance": "weit",
+    "previous": "nah",
+    "emotion": "wuetend"
+   }
+  },
+  {
+   "t": 25.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "traurig",
+    "previous": "wuetend",
+    "score": 0.3,
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 28.0,
+   "type": "speech",
+   "data": {
+    "text": "hallo reachy wie geht es dir",
+    "emotion": "traurig",
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 31.0,
+   "type": "gesture",
+   "data": {
+    "gesture": "Thumb_Up",
+    "emotion": "neutral",
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 34.0,
+   "type": "person_left",
+   "data": {}
+  },
+  {
+   "t": 39.0,
+   "type": "person_appeared",
+   "data": {
+    "distance": "mittel",
+    "emotion": "freude"
+   }
+  },
+  {
+   "t": 42.0,
+   "type": "speech",
+   "data": {
+    "text": "guten morgen",
+    "emotion": "freude",
+    "distance": "mittel"
+   }
+  },
+  {
+   "t": 45.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "neutral",
+    "previous": "freude",
+    "score": 0.05,
+    "distance": "mittel"
+   }
+  },
+  {
+   "t": 48.0,
+   "type": "gesture",
+   "data": {
+    "gesture": "Thumb_Down",
+    "emotion": "neutral",
+    "distance": "mittel"
+   }
+  },
+  {
+   "t": 51.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "traurig",
+    "previous": "neutral",
+    "score": 0.35,
+    "distance": "mittel"
+   }
+  },
+  {
+   "t": 54.0,
+   "type": "distance_changed",
+   "data": {
+    "distance": "weit",
+    "previous": "mittel",
+    "emotion": "traurig"
+   }
+  },
+  {
+   "t": 57.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "freude",
+    "previous": "traurig",
+    "score": 0.7,
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 60.0,
+   "type": "gesture",
+   "data": {
+    "gesture": "winken",
+    "emotion": "freude",
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 63.0,
+   "type": "distance_changed",
+   "data": {
+    "distance": "nah",
+    "previous": "weit",
+    "emotion": "freude"
+   }
+  },
+  {
+   "t": 66.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "ueberrascht",
+    "previous": "freude",
+    "score": 0.5,
+    "distance": "nah"
+   }
+  },
+  {
+   "t": 69.0,
+   "type": "speech",
+   "data": {
+    "text": "du bist ja suess",
+    "emotion": "ueberrascht",
+    "distance": "nah"
+   }
+  },
+  {
+   "t": 72.0,
+   "type": "person_left",
+   "data": {}
+  },
+  {
+   "t": 77.0,
+   "type": "person_appeared",
+   "data": {
+    "distance": "nah",
+    "emotion": "neutral"
+   }
+  },
+  {
+   "t": 80.0,
+   "type": "distance_changed",
+   "data": {
+    "distance": "weit",
+    "previous": "nah",
+    "emotion": "neutral"
+   }
+  },
+  {
+   "t": 83.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "wuetend",
+    "previous": "neutral",
+    "score": 0.4,
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 86.0,
+   "type": "gesture",
+   "data": {
+    "gesture": "mittelfinger",
+    "emotion": "wuetend",
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 89.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "neutral",
+    "previous": "wuetend",
+    "score": 0.05,
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 92.0,
+   "type": "speech",
+   "data": {
+    "text": "tut mir leid",
+    "emotion": "neutral",
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 95.0,
+   "type": "emotion_changed",
+   "data": {
+    "emotion": "freude",
+    "previous": "neutral",
+    "score": 0.5,
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 98.0,
+   "type": "gesture",
+   "data": {
+    "gesture": "Thumb_Up",
+    "emotion": "freude",
+    "distance": "weit"
+   }
+  },
+  {
+   "t": 101.0,
+   "type": "distance_changed",
+   "data": {
+    "distance": "mittel",
+    "previous": "weit",
+    "emotion": "freude"
+   }
+  },
+  {
+   "t": 104.0,
+   "type": "gesture",
+   "data": {
+    "gesture": "winken",
+    "emotion": "freude",
+    "distance": "mittel"
+   }
+  },
+  {
+   "t": 107.0,
+   "type": "speech",
+   "data": {
+    "text": "tschuess reachy",
+    "emotion": "freude",
+    "distance": "mittel"
+   }
+  },
+  {
+   "t": 110.0,
+   "type": "person_left",
+   "data": {}
+  }
+ ]
+}

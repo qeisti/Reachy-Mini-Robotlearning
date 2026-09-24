@@ -148,6 +148,63 @@ def summarize(events: pd.DataFrame, resources: pd.DataFrame, ann, threshold_ms: 
     return df.sort_values(["_o", "label"]).drop(columns="_o").reset_index(drop=True)
 
 
+# --- Statistik -------------------------------------------------------------------
+def bootstrap_median_ci(x: np.ndarray, n: int = 2000, seed: int = 0) -> tuple[float, float]:
+    x = x[~np.isnan(x)]
+    if len(x) < 2:
+        return float("nan"), float("nan")
+    rng = np.random.default_rng(seed)
+    meds = np.median(rng.choice(x, size=(n, len(x)), replace=True), axis=1)
+    return float(np.percentile(meds, 2.5)), float(np.percentile(meds, 97.5))
+
+
+def stats_tests(events: pd.DataFrame) -> pd.DataFrame:
+    """Mann-Whitney-U je Policy gegen R (und A-TC gegen A-SO), mit Effektstaerke
+    (rang-biseriale Korrelation r) und Bootstrap-95%-KI des Medians."""
+    try:
+        from scipy.stats import mannwhitneyu
+    except ImportError:
+        print("[compare] scipy fehlt – keine Signifikanztests (pip install scipy)")
+        return pd.DataFrame()
+    pols = [p for p in ORDER if p in set(events["policy"])]
+    pairs = [("rule", p) for p in pols if p != "rule"]
+    if {"agent_tc", "agent_so"} <= set(pols):
+        pairs.append(("agent_so", "agent_tc"))
+    rows = []
+    for metric in ("lat_decision_ms", "lat_e2e_ms"):
+        for a, b in pairs:
+            xa = events.loc[events["policy"] == a, metric].dropna().values
+            xb = events.loc[events["policy"] == b, metric].dropna().values
+            if len(xa) < 3 or len(xb) < 3:
+                continue
+            u, pval = mannwhitneyu(xa, xb, alternative="two-sided")
+            lo_a, hi_a = bootstrap_median_ci(xa)
+            lo_b, hi_b = bootstrap_median_ci(xb)
+            rows.append({"metric": metric, "a": a, "b": b, "n_a": len(xa), "n_b": len(xb),
+                         "median_a": np.median(xa), "ci95_a": f"[{lo_a:.3g}, {hi_a:.3g}]",
+                         "median_b": np.median(xb), "ci95_b": f"[{lo_b:.3g}, {hi_b:.3g}]",
+                         "U": u, "p": pval, "r_rank_biserial": 1 - 2 * u / (len(xa) * len(xb))})
+    return pd.DataFrame(rows)
+
+
+def data_checks(events: pd.DataFrame) -> list[str]:
+    """Plausibilitaetspruefungen: sind die Laeufe vergleichbar?"""
+    msgs = []
+    per_run = events.groupby(["policy", "run_dir"]).size()
+    for pol, g in per_run.groupby(level=0):
+        if g.max() - g.min() > max(1, 0.2 * g.median()):
+            msgs.append(f"{pol}: Ereignisse pro Lauf schwanken stark ({g.min()}–{g.max()}) – "
+                        "Wahrnehmung instabil oder Frames verworfen? (Stimulus/Schwellen pruefen)")
+    med = events.groupby("policy").size() / events.groupby("policy")["run_dir"].nunique()
+    if len(med) > 1 and med.max() > 1.3 * med.min():
+        msgs.append("Unterschiedlich viele Ereignisse je Policy – Perception wurde durch die Last "
+                    "des Agenten beeinflusst (Frames verworfen). Im Paper erwaehnen.")
+    miss = events["t_motor"].isna().mean()
+    if miss > 0.05:
+        msgs.append(f"{miss:.0%} der Ereignisse ohne Motorbefehl (Aktion 'nichts', ungueltig oder verdraengt).")
+    return msgs
+
+
 # --- Plots -----------------------------------------------------------------------
 def _style(ax, ylabel: str = "") -> None:
     for s in ("top", "right"):
@@ -330,7 +387,8 @@ def to_latex(summary: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
-def to_html(summary: pd.DataFrame, images: list[Path], sessions, threshold_ms: float) -> str:
+def to_html(summary: pd.DataFrame, images: list[Path], sessions, threshold_ms: float,
+            stats: pd.DataFrame | None = None, checks: list[str] | None = None) -> str:
     fmt = summary.copy()
     for c in fmt.columns:
         if fmt[c].dtype.kind == "f":
@@ -346,7 +404,7 @@ def to_html(summary: pd.DataFrame, images: list[Path], sessions, threshold_ms: f
 :root{{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--line:#e4e3df;--card:#ffffff}}
 body{{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,sans-serif}}
 main{{max-width:1100px;margin:0 auto;padding:24px 16px}}
-h1{{font-size:22px;margin:0 0 4px}} p.sub{{color:var(--ink2);margin:0 0 24px}}
+h1{{font-size:22px;margin:0 0 4px}} h2{{font-size:16px;margin:28px 0 8px}} p.sub{{color:var(--ink2);margin:0 0 24px}}
 .tbl{{border-collapse:collapse;background:var(--card);font-variant-numeric:tabular-nums;width:100%}}
 .tbl td,.tbl th{{padding:4px 10px;border-bottom:1px solid var(--line);text-align:right}}
 .tbl tr:first-child td{{font-weight:600}} .tbl th{{text-align:left;color:var(--ink2);font-weight:500}}
@@ -359,6 +417,8 @@ dl{{color:var(--ink2);font-size:13px}} dt{{font-weight:600;color:var(--ink)}}
 <h1>Regeln vs. LLM-Agent – Vergleich</h1>
 <p class="sub">Sessions: {", ".join(Path(s).name for s in sessions)} · Kontingenzschwelle {threshold_ms:.0f} ms</p>
 <div class="wrap">{table}</div>
+{"" if stats is None or stats.empty else "<h2>Signifikanztests</h2><div class='wrap'>" + stats.to_html(index=False, border=0, classes="tbl", float_format=lambda v: f"{v:.3g}") + "</div>"}
+{"" if not checks else "<h2>Datenpruefung</h2><ul>" + "".join(f"<li>{c}</li>" for c in checks) + "</ul>"}
 {imgs}
 <dl>
 <dt>decision_*</dt><dd>Zeit von Policy-Start bis zur ersten Aktion (t2 - t1).</dd>
@@ -367,6 +427,7 @@ dl{{color:var(--ink2);font-size:13px}} dt{{font-weight:600;color:var(--ink)}}
 <dt>consistency</dt><dd>Anteil der Laeufe mit der haeufigsten Aktion je Ereignis.</dd>
 <dt>agreement_with_rules</dt><dd>Anteil der Ereignisse, bei denen dieselbe Aktion wie R gewaehlt wurde.</dd>
 <dt>appropriateness</dt><dd>Anteil der Reaktionen in der annotierten Menge akzeptabler Aktionen.</dd>
+<dt>p / r_rank_biserial</dt><dd>Mann-Whitney-U-Test (zweiseitig) und Effektstaerke; |r| &gt; 0.5 = grosser Effekt.</dd>
 </dl></main></body></html>"""
 
 
@@ -396,13 +457,25 @@ def main() -> None:
                                     if _has_tabulate() else summary.to_string(index=False), encoding="utf-8")
     (out / "summary_table.tex").write_text(to_latex(summary), encoding="utf-8")
 
+    st = stats_tests(events)
+    if not st.empty:
+        st.to_csv(out / "stats.csv", index=False)
+    checks = data_checks(events)
+    (out / "checks.txt").write_text("\n".join(checks) or "keine Auffaelligkeiten", encoding="utf-8")
+
     images = [plot_latency(events, out, args.threshold_ms), plot_timeline(events, out),
               plot_quality(summary, out), plot_resources(summary, out), plot_actions(events, out)]
-    (out / "report.html").write_text(to_html(summary, images, args.sessions, args.threshold_ms), encoding="utf-8")
+    (out / "report.html").write_text(to_html(summary, images, args.sessions, args.threshold_ms, st, checks), encoding="utf-8")
 
     cols = ["label", "events", "decision_median_ms", "decision_p95_ms", "e2e_median_ms",
             "invalid_rate", "consistency", "agreement_with_rules"]
     print(summary[[c for c in cols if c in summary]].to_string(index=False, float_format=lambda v: f"{v:.2f}"))
+    if not st.empty:
+        print("\nSignifikanztests (Mann-Whitney-U):")
+        print(st[["metric", "a", "b", "median_a", "median_b", "p", "r_rank_biserial"]].to_string(
+            index=False, float_format=lambda v: f"{v:.3g}"))
+    for m in checks:
+        print("WARNUNG:", m)
     print(f"\nReport: {out / 'report.html'}")
 
 

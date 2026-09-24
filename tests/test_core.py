@@ -162,8 +162,25 @@ def test_end_to_end(tmp_path):
                        capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     rep = tmp_path / "session" / "report"
-    for f in ["summary.csv", "summary_table.tex", "report.html", "latency.pdf", "quality.png", "actions.png"]:
+    for f in ["summary.csv", "summary_table.tex", "report.html", "latency.pdf", "quality.png", "actions.png",
+              "stats.csv", "checks.txt"]:
         assert (rep / f).exists(), f
     s = pd.read_csv(rep / "summary.csv").set_index("policy")
     assert s.loc["rule", "decision_median_ms"] < s.loc["agent_tc", "decision_median_ms"]
     assert s.loc["rule", "consistency"] == 1.0
+
+
+def test_run_cli_interleaved(tmp_path):
+    scenario = json.loads(SCENARIO.read_text(encoding="utf-8"))
+    scenario["events"] = scenario["events"][:3]
+    for e in scenario["events"]:
+        e["t"] = e["t"] / 10
+    sc = tmp_path / "sc.json"
+    sc.write_text(json.dumps(scenario), encoding="utf-8")
+    out = tmp_path / "sess"
+    r = subprocess.run([sys.executable, str(ROOT / "scripts" / "run.py"), "--policy", "rule", "--runs", "2",
+                        "--source", str(sc), "--robot", "mock", "--pause", "0", "--out", str(out)],
+                       capture_output=True, text=True, timeout=120)
+    assert r.returncode == 0, r.stderr
+    assert (out / "system.json").exists()
+    assert (out / "rule_run00" / "events.csv").exists() and (out / "rule_run01" / "events.csv").exists()

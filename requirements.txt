@@ -14,5 +14,6 @@ psutil
 pandas
 matplotlib
 tabulate
+scipy
 # Tests
 pytest

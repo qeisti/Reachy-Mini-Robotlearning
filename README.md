@@ -63,6 +63,7 @@ legacy/                die ursprünglichen Einzelskripte (lauffähig aus legacy/
 tests/                 pytest, inkl. Fake-LLM – läuft ohne Roboter und ohne Ollama
 paper/                 Paper (LaTeX, IEEE): reachy_mini_agent_vs_rules.tex/.pdf, references.bib
 docs/ABLAUF.md         Flowchart: Programm Schritt für Schritt ausführen
+docs/DATENERHEBUNG.md  Messprotokoll: wie aussagekräftige Daten für den Vergleich entstehen
 ```
 
 ## Installation
@@ -102,6 +103,8 @@ python scripts/run.py --policy rule agent_tc agent_so --source experiments/scena
 ```
 
 ## Experiment fahren
+
+Vollständiges Messprotokoll (Drehbuch, Einfrieren, Annotation, Reihenfolge, Statistik): [docs/DATENERHEBUNG.md](docs/DATENERHEBUNG.md)
 
 1. **Stimulus aufnehmen** (einmal): `python scripts/record_stimulus.py experiments/stimuli/stimulus.mp4`
    Ablauf z. B.: Person tritt ins Bild → lächelt → winkt → kommt nah → wirkt verärgert → geht.
