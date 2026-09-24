@@ -3,33 +3,17 @@
 \usepackage{cite}
 \usepackage{url}
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
-\usepackage{subcaption}
-\usepackage{blindtext}
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\definecolor{twblue}{HTML}{1f497d}
-\definecolor{structure}{HTML}{1f497d}
-
-% --- Hilfsmakros fuer den Entwurf -------------------------------------------
-\makeatletter
-\@ifundefined{todo}{}{\let\todo\relax}
-\@ifundefined{needcite}{}{\let\needcite\relax}
-\makeatother
-\DeclareRobustCommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
-\DeclareRobustCommand{\needcite}[1]{\textcolor{red}{\textsuperscript{[cite: #1]}}}
 % Stichpunkt-Liste mit wenig Abstand
 \newenvironment{points}{\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}}{\end{itemize}}
-% ----------------------------------------------------------------------------
 
-% Stand: Fortschrittsbericht 1 -- stichwortartiger Aufbau aller Kapitel,
-% ausformulierter wissenschaftlicher Beitrag (Kapitel I).
-% Vorversion (Fokus Kindchenschema): archive/v1_babyschema.tex
+% Stand: Fortschrittsbericht 1
+%  - stichwortartiger Aufbau: Ueberschriften + Stichpunkte je Kapitel
+%  - ausformulierter wissenschaftlicher Beitrag: Problemstellung, Forschungsfrage (Kap. I)
 
 \title{Rule-Based or LLM Agent? Real-Time Behaviour Selection\\ for an Emotion-Responsive Reachy Mini}
 
@@ -42,132 +26,79 @@
 
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{abstract}
-\textit{Outline (to be written last, 150--200 words):}
+\textit{Outline (written last):}
 \begin{points}
-    \item Social robots must react promptly and appropriately to human emotion; LLM agents promise flexible behaviour but are slow and non-deterministic.
-    \item Research question: can a local LLM agent select behaviour on the Reachy Mini in real time, and what does it offer over rules?
-    \item Method: fixed perception (MediaPipe), action repertoire and motion layer; only the behaviour-selection layer is exchanged (rules, LangChain agent with tool calling, structured output, hybrid); recorded and annotated stimulus, ten runs each.
-    \item Results: latency, resource demand, validity, consistency and appropriateness per configuration (after measurement).
-    \item Conclusion: answer to the research question and recommendation.
+    \item Problem: LLM agents promise flexible social behaviour but may be too slow for real-time emotional reactions.
+    \item Method: rule-based controller vs.\ local LLM agent on the Reachy Mini, identical perception and actions, first in simulation, then on the robot.
+    \item Result and conclusion: latency, resources and behavioural quality; answer to the research question.
 \end{points}
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Robots are moving from industrial cells into everyday environments such as
-homes, classrooms and offices. In these settings the quality of an interaction
-depends less on task performance than on whether the robot is perceived as
-responsive and approachable. People respond empathically even to robots
-\cite{Suzuki2015Empathy}, and observers rate a robot as simple as the Reachy Mini as warmer and more sociable when it expresses
-positive affect through head and antenna motion alone \cite{Rogel2026Reachy}. Whether such a
-reaction is read as a response to one's own behaviour, however, depends on
-its timing \cite{Shiwa2008Respond}. For a social robot, prompt and
-appropriate emotional responsiveness is therefore a core function rather than
-an add-on.
+Social robots are expected to notice how a person feels and to react to it.
+Even a robot with a strongly reduced expressive channel can do so: observers
+rate the Reachy Mini as warmer and more sociable when it expresses positive
+affect through head and antenna motion alone \cite{Rogel2026Reachy}.
 
-\textbf{Problem statement.} The component that turns perceived human state into
-robot behaviour -- the \emph{behaviour-selection layer} -- is traditionally
-implemented with hand-written rules, state machines or behaviour
-trees \cite{Colledanchise2018BT}. Such controllers are fast, predictable and
-easy to verify, but every situation has to be anticipated and encoded by hand,
-and repeated situations lead to identical, mechanical reactions. Large language
-models (LLMs) used as tool-calling agents \cite{Yao2023ReAct} offer an
-alternative: the robot's reaction is selected from a natural-language
-description of the situation and the interaction history, which promises more
-varied and context-sensitive behaviour without programming every case.
+\textbf{Problem statement.} The component that maps the perceived state of a
+person to the robot's reaction -- the \emph{behaviour-selection layer} -- is
+usually implemented with hand-written rules. Rules are fast and predictable,
+but every situation has to be anticipated, and repeated situations lead to
+identical, mechanical reactions. Large language models (LLMs) used as
+tool-calling agents \cite{Yao2023ReAct} offer an alternative: the reaction is
+chosen from a textual description of the situation and the interaction
+history, which promises more varied and context-sensitive behaviour.
 Frameworks such as LangChain \cite{LangChain} and local inference servers such
-as Ollama \cite{Ollama} make this approach available on commodity hardware and
-without a cloud connection. However, LLM inference takes hundreds of
-milliseconds to seconds, occupies substantial compute and memory, and does not
-guarantee valid or reproducible outputs. These properties collide with the
-requirement of contingency: users prefer robot responses within about one
-second \cite{Shiwa2008Respond}, and a reaction that arrives too late is no
-longer read as a response to one's own behaviour. In robotics, LLMs have so far
-mainly been used for task planning without hard timing constraints
-\cite{Ahn2022SayCan,Liang2023CodeAsPolicies}. For reactive, emotion-driven
-behaviour on resource-constrained hardware it is unclear whether an LLM agent
-is a viable replacement for rule-based control, and a controlled comparison
-that considers timing, resource cost and behavioural quality together is
-missing.
+as Ollama \cite{Ollama} make this possible without a cloud connection.
+However, LLM inference takes hundreds of milliseconds to seconds, requires
+considerable compute and memory, and does not guarantee valid or reproducible
+outputs. This conflicts with the timing requirement of social interaction:
+users prefer robot responses after about one second \cite{Shiwa2008Respond},
+and a reaction that comes too late is no longer read as a response. It is
+therefore unclear whether an LLM agent can replace rule-based behaviour
+selection on a small robot in real time, and what it offers in return for its
+cost.
 
-\textbf{Research question.} This paper therefore addresses the question:
+\textbf{Research question.}
 \begin{quote}
 \emph{Can a local LLM agent select emotion-responsive behaviour on the Reachy
 Mini in real time, and what does it offer over a rule-based controller?}
 \end{quote}
-The first part is answered by the latency of the agent relative to the
-contingency threshold, the second by its resource demand and by the validity,
-consistency and appropriateness of the chosen reactions. We expect
-(H1) the rule-based controller to be faster by at least one order of magnitude,
-with the agent exceeding the threshold in a relevant share of reactions;
-(H2) the agent to require considerably more CPU/GPU time and memory;
-(H3) the agent to produce more varied reactions at the cost of lower
-consistency and occasional invalid actions; and (H4) a hybrid, in which rules
-handle time-critical reflexes and the agent handles the remaining events, to
-retain the latency of rules for those reflexes.
+The first part is answered by the agent's reaction latency relative to the
+one-second threshold, the second by its resource demand and by the validity,
+consistency and appropriateness of the chosen reactions.
 
 \textbf{Contribution.} We implement a behaviour architecture for the Reachy
 Mini \cite{ReachyMiniSDK} in which perception, action repertoire and motion
-execution are identical across conditions and only the behaviour-selection
-layer is exchanged. On this basis we compare four configurations -- a
-rule-based controller, a LangChain agent with tool calling, a single LLM call
-with structured output, and a hybrid -- on an identical, recorded and annotated
-stimulus. The contributions are (i) an open, reproducible test bed with
-instrumented timestamps from camera frame to motor command, (ii) a
-quantitative comparison of latency, resource demand and behavioural quality,
-and (iii) design recommendations for when an LLM agent is worth its cost in
-reactive social robotics.
-
-Section II reviews the background, Section III describes architecture,
-configurations and evaluation design, Section IV reports the measurements, and
-Section V concludes.
+execution are fixed and only the behaviour-selection layer is exchanged. We
+compare a rule-based controller with LLM-agent variants on identical, recorded
+input, first in simulation and then locally on the robot, and derive
+recommendations on when an agent is worth its cost.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{State of the Art}
 
 \subsection{Emotional Responsiveness in Social Robots}
 \begin{points}
-    \item Humans empathise with robots; EEG shows pain-related responses to robot hands \cite{Suzuki2015Empathy} $\rightarrow$ emotional reactions of a robot are socially meaningful.
-    \item Response timing: user preference peaks at about 1\,s response time; fillers mitigate longer delays \cite{Shiwa2008Respond} $\rightarrow$ requirement: contingency; threshold for evaluation.
-    \item Reactions must fit the displayed emotion $\rightarrow$ requirement: appropriateness.
-    \item Design: baby-schema features increase perceived cuteness and caretaking motivation \cite{Glocker2009BabySchema}; moderate rather than near-human likeness avoids the uncanny valley \cite{Mori2012Uncanny} $\rightarrow$ Reachy Mini's stylised morphology.
-    \item Reachy Mini: positive expressions via head and antennas alone rated warmer and more sociable than negative ones \cite{Rogel2026Reachy} $\rightarrow$ reduced expressive channel is sufficient.
-    \item Repeated identical reactions appear mechanical $\rightarrow$ requirement: variability.
+    \item Emotions expressed through head and antennas alone are perceived by observers \cite{Rogel2026Reachy}.
+    \item Response timing decisive; preference peaks at about 1\,s \cite{Shiwa2008Respond}.
+    \item Derived requirements: contingency, appropriateness, non-mechanical variability.
 \end{points}
 
 \subsection{Rule-Based Behaviour Control}
 \begin{points}
-    \item Finite state machines, behaviour trees \cite{Colledanchise2018BT}, lookup tables as standard in social robots.
-    \item Strengths: deterministic, fast (\textmu s), verifiable, no extra hardware.
-    \item Weaknesses: every case must be modelled; rigid; repetitive; little use of interaction history.
+    \item State machines, behaviour trees, lookup tables.
+    \item Fast, deterministic, verifiable -- but rigid and repetitive.
 \end{points}
 
 \subsection{LLM Agents for Robot Behaviour}
 \begin{points}
-    \item LLMs as high-level planners: SayCan \cite{Ahn2022SayCan}, Code as Policies \cite{Liang2023CodeAsPolicies} -- no hard real-time constraints.
-    \item Agent pattern: reasoning + tool calls \cite{Yao2023ReAct}; frameworks such as LangChain \cite{LangChain}.
-    \item Small open models with tool calling (e.g.\ Qwen2.5 \cite{Qwen2025}) run locally via Ollama \cite{Ollama}.
-    \item Known issues: latency, invalid or hallucinated actions, non-reproducibility, resource demand.
-    \item LLMs generate expressive nonverbal robot behaviour from few-shot prompts \cite{Mahadevan2024GenEM}; real-time reactivity and cost not the focus.
-\end{points}
-
-\subsection{Real-Time Perception Toolkits}
-\begin{points}
-    \item Pre-trained, CPU-capable pipelines instead of task-specific training.
-    \item MediaPipe \cite{Lugaresi2019MediaPipe}: face mesh with blendshapes, hand gestures.
-    \item Vosk \cite{Vosk}: offline speech recognition.
-    \item Held constant in all configurations of this work.
-\end{points}
-
-\subsection{Research Gap}
-\begin{points}
-    \item LLM agents in robotics evaluated for planning, not for contingent emotional reactions.
-    \item No controlled comparison of rules vs.\ LLM agent that measures latency, resources and behaviour quality together on constrained hardware.
-    \item $\Rightarrow$ this work: identical pipeline, only behaviour selection exchanged.
+    \item LLMs as planners and tool-calling agents \cite{Yao2023ReAct}; local models via Ollama.
+    \item Open issues: latency, invalid actions, non-reproducibility, resource demand.
+    \item Research gap: no controlled comparison with rules for real-time emotional reactions on small hardware.
 \end{points}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,150 +106,49 @@ Section V concludes.
 
 \subsection{Platform}
 \begin{points}
-    \item Reachy Mini: 6-DoF head (Stewart platform), body yaw, two antennas, camera, microphones; no facial actuators.
-    \item Python SDK + daemon; physical robot or MuJoCo simulation \cite{MuJoCo}.
-    \item Host computer for perception and LLM: \todo{CPU/GPU/RAM angeben}.
+    \item Reachy Mini: 6-DoF head, body rotation, two antennas, camera.
+    \item Phase 1: simulation on a laptop; phase 2: Reachy Mini Wireless, everything running on the onboard computer (Raspberry Pi CM4, 4\,GB RAM).
 \end{points}
 
 \subsection{System Architecture}
 \begin{points}
-    \item Three layers (Fig.~\ref{fig:architecture}): perception $\rightarrow$ behaviour selection $\rightarrow$ motion execution.
-    \item Perception (camera rate): FaceLandmarker blendshapes $\rightarrow$ four affective categories; rectangle of eye and mouth corners $\rightarrow$ gaze target and distance class; gesture recogniser + custom wave detector; optional speech.
-    \item Event detector: only relevant changes are passed on (person appears/leaves, stable emotion or distance change, gesture, utterance); debounce 0.5\,s.
-    \item Behaviour selection in a separate worker thread; events queued (FIFO).
-    \item Motion execution at 50\,Hz: head follows face in all configurations; expressions overlaid as keyframes with minimum-jerk interpolation \cite{Flash1985Minjerk}; non-blocking.
-    \item Consequence: tracking stays real-time even while the agent is computing.
+    \item Perception (MediaPipe): face position, distance, four emotion classes, hand gestures.
+    \item Event filter: only relevant changes reach the behaviour selection.
+    \item Motion layer (50\,Hz): head keeps tracking the face; expressions are played without blocking.
+    \item Shared action repertoire: seven emotional postures, wave, nod, no action.
 \end{points}
 
-\begin{figure}[!h]
-    \centering
-    % TODO: Architekturdiagramm (als PDF exportieren)
-    \includegraphics[width=0.6\columnwidth]{images/fh_technikum_wien_logo_4c_cmyk_2020.pdf}
-    \caption{Placeholder. Three-layer architecture; only the behaviour-selection
-    layer differs between configurations.}
-    \label{fig:architecture}
-\end{figure}
-
-\subsection{Action Repertoire}
+\subsection{Compared Configurations}
 \begin{points}
-    \item Shared by all configurations (Tab.~\ref{tab:repertoire}): seven emotional postures (neutral, joy, fear, curious, sad, cautious, confused), two gestures (wave, nod), \emph{no action}.
-    \item Action = antenna angles + head offsets + duration; several pose variants per emotion, chosen at random.
-    \item Same list serves as rule targets and as agent tools/schema values.
+    \item R: rule table (baseline).
+    \item A-TC: LangChain agent with one tool per action.
+    \item A-SO: single LLM call with schema-validated output.
+    \item H: rules for time-critical events, LLM for the rest.
+    \item Model: Qwen2.5 via Ollama; smaller variants on the robot.
 \end{points}
-
-\subsection{Behaviour-Selection Configurations}
-\begin{points}
-    \item \textbf{R -- rules:} lookup table (event, emotion, distance) $\rightarrow$ action; mirror joy, fear at anger or intrusion, curiosity at surprise, return waves.
-    \item \textbf{A-TC -- agent with tool calling:} LangChain \texttt{create\_agent}, one tool per action type, textual observation + last five events as history, persona prompt, tool ends the agent loop directly.
-    \item \textbf{A-SO -- structured output:} same prompt and model, one call returning a schema-validated action object; isolates the cost of the agent loop.
-    \item \textbf{H -- hybrid:} rules for time-critical events (appear, leave, gesture, distance), A-SO for emotion changes and speech.
-    \item Model: local via Ollama, default Qwen2.5-3B \cite{Qwen2025}, temperature 0; optional comparison of model sizes.
-\end{points}
-
-\begin{table}[!h]
-    \centering
-    \setlength{\tabcolsep}{0.4em}
-    {\renewcommand{\arraystretch}{1.2}\footnotesize
-    \begin{tabular}{|l|p{2.3cm}|p{3.6cm}|}
-        \hline
-        \textbf{Cfg} & \textbf{Selection} & \textbf{Isolated effect} \\ \hline
-        R    & rules            & baseline \\ \hline
-        A-TC & agent, tool call & rules $\rightarrow$ agent \\ \hline
-        A-SO & LLM, schema      & cost of the agent loop (vs.\ A-TC) \\ \hline
-        H    & rules $+$ LLM    & can a hybrid combine both? \\ \hline
-    \end{tabular}}
-    \caption{Compared behaviour-selection configurations. Perception, action
-    repertoire and motion execution are identical in all of them.}
-    \label{tab:configs}
-\end{table}
-
-\subsection{Requirements and Metrics}
-\begin{points}
-    \item Mapping of requirements from Section II to metrics in Tab.~\ref{tab:metrics}.
-    \item Timestamps: $t_0$ frame read, $t_1$ selection started, $t_2$ first action, $t_3$ first motor command.
-\end{points}
-
-\begin{table}[!h]
-    \centering
-    \setlength{\tabcolsep}{0.35em}
-    {\renewcommand{\arraystretch}{1.25}\footnotesize
-    \begin{tabular}{|p{1.8cm}|p{3.6cm}|p{1.4cm}|}
-        \hline
-        \textbf{Requirement} & \textbf{Metric} & \textbf{Reported in} \\ \hline
-        Contingency & Decision latency $t_2-t_1$, end-to-end latency $t_3-t_0$ (median, IQR, p95); share above 1\,s & Sec.~IV-A \\ \hline
-        Efficiency & CPU, GPU, RAM of process and LLM server & Sec.~IV-B \\ \hline
-        Appropriateness & Agreement with annotated acceptable reactions; rate of invalid or missing actions & Sec.~IV-C \\ \hline
-        Variability vs.\ consistency & Share of identical decisions across runs; distinct actions per event type & Sec.~IV-D \\ \hline
-    \end{tabular}}
-    \caption{Requirements, metrics and where they are reported.}
-    \label{tab:metrics}
-\end{table}
 
 \subsection{Evaluation Design}
 \begin{points}
-    \item One recorded stimulus video (person enters, smiles, waves, approaches, looks angry, speaks, leaves), replayed in real time into every configuration.
-    \item Annotation: event time windows and set of acceptable reactions; \todo{Anzahl Annotatoren, Uebereinstimmung}.
-    \item Ten runs per configuration; warm-up call discarded.
-    \item Resource sampling every 0.5\,s in parallel.
-    \item Evaluation script produces tables and plots per configuration.
-\end{points}
-
-\subsection{Software Environment}
-\begin{points}
-    \item Python 3.12, MediaPipe, OpenCV \cite{OpenCV}, NumPy \cite{Harris2020NumPy}, LangChain, Ollama, Reachy Mini SDK.
-    \item Code and evaluation scripts in the project repository \todo{Link, Versionen}.
+    \item Input A: scripted event sequence (decision only); input B: recorded and annotated video (end to end).
+    \item Ten interleaved runs per configuration, in simulation and on the robot.
+    \item Metrics: decision and end-to-end latency (median, p95, share above 1\,s); CPU/RAM; invalid actions; consistency across runs; appropriateness against annotation.
 \end{points}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Results}
 \textit{Planned content -- measurements pending.}
-
-\subsection{Latency}
 \begin{points}
-    \item Box plot of decision and end-to-end latency per configuration (Fig.~\ref{fig:latency}), 1\,s threshold marked.
-    \item Share of reactions above threshold; queueing delay when events arrive during an ongoing decision.
-    \item A-TC vs.\ A-SO: overhead of the agent loop.
-\end{points}
-
-\begin{figure}[!h]
-    \centering
-    % TODO: latency.pdf aus scripts/compare.py einsetzen
-    \includegraphics[width=0.6\columnwidth]{images/fh_technikum_wien_logo_4c_cmyk_2020.pdf}
-    \caption{Placeholder. Decision and end-to-end latency per configuration.}
-    \label{fig:latency}
-\end{figure}
-
-\subsection{Resource Demand}
-\begin{points}
-    \item Mean and peak CPU, GPU and RAM per configuration; share caused by the LLM server.
-    \item Does the agent fit on the target hardware next to perception?
-\end{points}
-
-\subsection{Behavioural Appropriateness}
-\begin{points}
-    \item Share of appropriate reactions per configuration and event type.
-    \item Invalid or missing actions of the agent variants.
-    \item One or two qualitative examples of context-sensitive (or wrong) agent decisions.
-\end{points}
-
-\subsection{Consistency and Variability}
-\begin{points}
-    \item Share of identical decisions over ten runs; distinct actions per event type.
-    \item Is the agent's variability useful (variety) or harmful (contradictory)?
-\end{points}
-
-\subsection{Discussion}
-\begin{points}
-    \item Answer to both parts of the research question; hypotheses H1--H4 confirmed or rejected.
-    \item Trade-off latency/resources vs.\ flexibility; role of the hybrid.
-    \item Limitations: one stimulus, one hardware setup, no user study.
+    \item Latency per configuration, simulation vs.\ robot.
+    \item Resource demand; does the agent fit on the robot next to perception?
+    \item Validity, consistency and appropriateness of the reactions.
+    \item Discussion: trade-off between latency/cost and flexibility; limitations.
 \end{points}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Summary and Outlook}
 \begin{points}
-    \item Summary: comparison of rules and LLM agent as behaviour selection on the Reachy Mini; key numbers; answer to the research question.
-    \item Outlook: user study with Godspeed \cite{Bartneck2009Godspeed} or RoSAS \cite{Carpinella2017RoSAS}; streaming and speculative execution to reduce latency; memory across interactions; vision-language model instead of symbolic state.
+    \item Answer to the research question and recommendation.
+    \item Outlook: user study, latency reduction, memory across interactions.
 \end{points}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -326,29 +156,5 @@ Section V concludes.
 \bibliographystyle{IEEEtranS}
 \bibliography{references}
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-\section*{Appendix}
-\begin{table}[!h]
-    \centering
-    \setlength{\tabcolsep}{0.5em}
-    {\renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{|l|c|c|c|}
-        \hline
-        \textbf{Action} & \textbf{Antennas [$^\circ$]} & \textbf{Head offset} & \textbf{Dur. [s]} \\ \hline
-        neutral    & $-30 / 30$   & --                         & 1.0 \\ \hline
-        joy        & $-90 / 90$   & pitch $-10$, $z$ $+10$     & 0.6 \\ \hline
-        fear       & $-180 / 180$ & pitch $+10$, $z$ $-30$     & 1.0 \\ \hline
-        curious    & $-120 / 110$ & yaw $\pm20$, roll $\pm10$  & 1.2 \\ \hline
-        sad        & $-10 / 10$   & pitch $+20$, $z$ $-15$     & 1.5 \\ \hline
-        cautious   & $-120 / 110$ & --                         & 1.0 \\ \hline
-        confused   & $-90 / 30$   & yaw $\pm20$, roll $\pm15$  & 0.5 \\ \hline
-        wave       & $0 \leftrightarrow \mp90$ (2$\times$) & -- & $5 \times 0.25$ \\ \hline
-        nod        & --           & pitch $15/{-5}/15/0$       & $4 \times 0.2$ \\ \hline
-    \end{tabular}}
-    \caption{Action repertoire shared by all configurations (from \texttt{reachy\_hri/actions.py}).}
-    \label{tab:repertoire}
-\end{table}
 
 \end{document}
