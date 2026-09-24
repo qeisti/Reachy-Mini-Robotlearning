@@ -1,0 +1,17 @@
+{
+  "description": "Skriptierte Ereignisfolge fuer reine Entscheidungstests (ohne Kamera). Zeiten in s.",
+  "events": [
+    {"t": 1.0,  "type": "person_appeared",  "data": {"distance": "weit", "emotion": "neutral"}},
+    {"t": 3.0,  "type": "emotion_changed",  "data": {"emotion": "freude", "previous": "neutral", "score": 0.6, "distance": "weit"}},
+    {"t": 5.0,  "type": "gesture",          "data": {"gesture": "winken", "emotion": "freude", "distance": "weit"}},
+    {"t": 7.0,  "type": "distance_changed", "data": {"distance": "mittel", "previous": "weit", "emotion": "freude"}},
+    {"t": 9.0,  "type": "emotion_changed",  "data": {"emotion": "ueberrascht", "previous": "freude", "score": 0.4, "distance": "mittel"}},
+    {"t": 11.0, "type": "distance_changed", "data": {"distance": "nah", "previous": "mittel", "emotion": "ueberrascht"}},
+    {"t": 13.0, "type": "emotion_changed",  "data": {"emotion": "wuetend", "previous": "ueberrascht", "score": 0.3, "distance": "nah"}},
+    {"t": 15.0, "type": "distance_changed", "data": {"distance": "weit", "previous": "nah", "emotion": "wuetend"}},
+    {"t": 17.0, "type": "emotion_changed",  "data": {"emotion": "traurig", "previous": "wuetend", "score": 0.3, "distance": "weit"}},
+    {"t": 19.0, "type": "speech",           "data": {"text": "hallo reachy wie geht es dir", "emotion": "traurig", "distance": "weit"}},
+    {"t": 21.0, "type": "gesture",          "data": {"gesture": "Thumb_Up", "emotion": "neutral", "distance": "weit"}},
+    {"t": 23.0, "type": "person_left",      "data": {}}
+  ]
+}

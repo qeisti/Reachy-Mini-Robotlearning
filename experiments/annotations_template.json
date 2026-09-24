@@ -1,0 +1,11 @@
+{
+  "video": "experiments/stimuli/stimulus.mp4",
+  "note": "Zeitfenster [s] im Stimulus-Video, in dem das Ereignis erkannt werden sollte, und die Menge akzeptabler Reaktionen. Mehrere Annotatoren -> Schnittmenge/Mehrheit. 'type' optional.",
+  "events": [
+    {"t_start": 0.5,  "t_end": 3.0,  "type": "person_appeared", "acceptable": ["neugierig", "winken", "freude"]},
+    {"t_start": 3.0,  "t_end": 6.0,  "type": "emotion_changed", "acceptable": ["freude", "nicken"]},
+    {"t_start": 6.0,  "t_end": 9.0,  "type": "gesture",         "acceptable": ["winken"]},
+    {"t_start": 9.0,  "t_end": 12.0, "type": "distance_changed","acceptable": ["angst", "vorsichtig"]},
+    {"t_start": 12.0, "t_end": 16.0, "type": "person_left",     "acceptable": ["neutral", "traurig", "nichts"]}
+  ]
+}

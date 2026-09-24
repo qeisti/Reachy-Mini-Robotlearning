@@ -4,7 +4,7 @@ import queue
 import sounddevice as sd
 from vosk import KaldiRecognizer, Model
 
-MODEL_PATH = "vosk-model-small-de-0.15"
+MODEL_PATH = "../models/vosk-model-small-de-0.15"
 SAMPLE_RATE = 16000
 
 model = Model(MODEL_PATH)

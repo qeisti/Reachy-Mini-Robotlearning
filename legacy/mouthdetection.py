@@ -61,7 +61,7 @@ def detect_emotion(blendshapes):
     return best_name, best_score
 
 
-base_options = BaseOptions(model_asset_path="face_landmarker.task")
+base_options = BaseOptions(model_asset_path="../models/face_landmarker.task")
 options = FaceLandmarkerOptions(
     base_options=base_options,
     num_faces=1,

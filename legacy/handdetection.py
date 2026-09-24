@@ -106,7 +106,7 @@ class WaveDetector:
         return False
 
 
-base_options = BaseOptions(model_asset_path="gesture_recognizer.task")
+base_options = BaseOptions(model_asset_path="../models/gesture_recognizer.task")
 options = GestureRecognizerOptions(base_options=base_options, num_hands=2)
 recognizer = GestureRecognizer.create_from_options(options)
 

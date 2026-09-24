@@ -142,7 +142,7 @@ def mover_loop(mini, lock, desired, stop_event):
         time.sleep(0.02)
 
 
-base_options = BaseOptions(model_asset_path="face_landmarker.task")
+base_options = BaseOptions(model_asset_path="../models/face_landmarker.task")
 options = FaceLandmarkerOptions(
     base_options=base_options,
     num_faces=1,

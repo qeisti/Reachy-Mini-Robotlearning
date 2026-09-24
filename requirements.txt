@@ -1,0 +1,18 @@
+# Roboter + Wahrnehmung
+reachy-mini
+mediapipe
+opencv-python
+numpy
+sounddevice
+vosk
+# Agent (LangChain + lokales LLM ueber Ollama)
+langchain>=1.0
+langchain-ollama>=1.0
+pydantic>=2
+# Messung + Auswertung
+psutil
+pandas
+matplotlib
+tabulate
+# Tests
+pytest

@@ -3,3 +3,9 @@ __pycache__/
 vosk-model-small-de-0.15/
 vosk-model-small-de-0.15.zip
 SETUP.md
+models/vosk-model-small-de-0.15/
+models/vosk-model-small-de-0.15.zip
+experiments/results/
+experiments/stimuli/*.mp4
+*.egg-info/
+.venv/

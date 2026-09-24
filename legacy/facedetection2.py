@@ -97,7 +97,7 @@ def mover_loop(mini, lock, desired, stop_event):
         time.sleep(0.02)
 
 
-base_options = BaseOptions(model_asset_path="face_detector.tflite")
+base_options = BaseOptions(model_asset_path="../models/face_detector.tflite")
 options = FaceDetectorOptions(base_options=base_options)
 detector = FaceDetector.create_from_options(options)
 

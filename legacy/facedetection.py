@@ -28,7 +28,7 @@ def categorize_size(box_area: float, frame_area: float) -> str:
             return label
     return SIZE_CATEGORIES[-1][1]
 
-base_options = BaseOptions(model_asset_path="face_detector.tflite")
+base_options = BaseOptions(model_asset_path="../models/face_detector.tflite")
 options = FaceDetectorOptions(base_options=base_options)
 detector = FaceDetector.create_from_options(options)
 
