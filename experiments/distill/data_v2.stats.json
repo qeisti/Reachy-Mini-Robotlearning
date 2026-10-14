@@ -1,0 +1,54 @@
+{
+  "teacher": "qwen2.5:14b",
+  "episodes": 400,
+  "seed": 1,
+  "examples": 3011,
+  "skipped": 0,
+  "seconds": 664.4,
+  "timestamp": "2026-09-26 17:22:59",
+  "actions_per_event_type": {
+    "distance_changed": {
+      "vorsichtig": 277,
+      "angst": 163,
+      "freude": 38,
+      "traurig": 36,
+      "neutral": 27,
+      "neugierig": 18
+    },
+    "emotion_changed": {
+      "angst": 265,
+      "traurig": 185,
+      "neugierig": 136,
+      "vorsichtig": 122,
+      "freude": 112,
+      "neutral": 80
+    },
+    "gesture": {
+      "freude": 198,
+      "traurig": 152,
+      "winken": 59,
+      "angst": 10
+    },
+    "person_appeared": {
+      "vorsichtig": 120,
+      "neugierig": 114,
+      "angst": 75,
+      "freude": 54,
+      "traurig": 37
+    },
+    "person_left": {
+      "neutral": 400
+    },
+    "speech": {
+      "winken": 67,
+      "angst": 62,
+      "freude": 58,
+      "traurig": 50,
+      "vorsichtig": 48,
+      "neutral": 36,
+      "neugierig": 9,
+      "verwirrt": 2,
+      "nicken": 1
+    }
+  }
+}

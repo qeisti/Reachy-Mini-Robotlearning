@@ -1,0 +1,23 @@
+Train 2445, Validierung 274, Test 292 Beispiele
+Sequenzlaenge: 532-760 Tokens
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 3663.35it/s]
+{'loss': '0.1337', 'grad_norm': '4.378', 'learning_rate': '2.12e-05', 'epoch': '0.1307'}
+{'loss': '0.1459', 'grad_norm': '4.186', 'learning_rate': '3.207e-05', 'epoch': '0.1961'}
+{'loss': '0.1891', 'grad_norm': '8.542', 'learning_rate': '4.293e-05', 'epoch': '0.2614'}
+{'loss': '0.1644', 'grad_norm': '3.475', 'learning_rate': '4.999e-05', 'epoch': '0.3268'}
+{'loss': '0.1049', 'grad_norm': '5.963', 'learning_rate': '4.987e-05', 'epoch': '0.3922'}
+{'loss': '0.1033', 'grad_norm': '1.918', 'learning_rate': '4.96e-05', 'epoch': '0.4575'}
+{'loss': '0.1014', 'grad_norm': '2.089', 'learning_rate': '4.919e-05', 'epoch': '0.5229'}
+{'loss': '0.08288', 'grad_norm': '1.855', 'learning_rate': '4.864e-05', 'epoch': '0.5882'}
+{'loss': '0.05989', 'grad_norm': '3.137', 'learning_rate': '4.796e-05', 'epoch': '0.6536'}
+{'loss': '0.06813', 'grad_norm': '2.039', 'learning_rate': '4.714e-05', 'epoch': '0.719'}
+{'loss': '0.06084', 'grad_norm': '2.35', 'learning_rate': '4.619e-05', 'epoch': '0.7843'}
+{'loss': '0.06183', 'grad_norm': '2.129', 'learning_rate': '4.512e-05', 'epoch': '0.8497'}
+{'loss': '0.06867', 'grad_norm': '1.727', 'learning_rate': '4.394e-05', 'epoch': '0.915'}
+{'loss': '0.05662', 'grad_norm': '2.135', 'learning_rate': '4.264e-05', 'epoch': '0.9804'}
+[A
+                                               [A{'eval_loss': '0.06534', 'eval_runtime': '6.019', 'eval_samples_per_second': '45.52', 'eval_steps_per_second': '5.815', 'epoch': '1'}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s][A
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.15it/s][A
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.15it/s]

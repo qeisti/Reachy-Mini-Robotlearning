@@ -1,0 +1,19 @@
+# Destillation qwen2.5:14b -> FunctionGemma (Conda-Umgebung ``distill``).
+# scripts/distill_*.py; PyTorch mit CUDA passend zur GPU installieren
+# (https://pytorch.org/get-started/locally/).
+#
+# Datengenerierung (Lehrer ueber Ollama) + Auswertung
+langchain>=1.4
+langchain-core>=1.6
+langchain-ollama>=1.1
+pydantic>=2.13
+numpy>=2.5
+pandas>=3.0
+psutil>=7.2
+# Training
+torch>=2.14
+transformers>=5.17
+datasets>=5.0
+huggingface-hub>=1.33
+accelerate>=1.15
+tensorboard>=2.21

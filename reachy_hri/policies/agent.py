@@ -15,18 +15,21 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 from .. import config
-from ..actions import ACTION_DESCRIPTIONS, ACTION_NAMES, NO_ACTION, ROBOT_EMOTIONS, Action
+from ..actions import ACTION_DESCRIPTIONS, ACTION_NAMES, Action
 from ..state import Event
 from .base import DecisionInfo, Emit, Policy
+from .rule_based import rules_prompt
 
 SYSTEM_PROMPT = """Du bist Reachy Mini, ein kleiner, freundlicher Tischroboter ohne Gesicht.
 Du drueckst dich nur ueber Kopfbewegungen und zwei Antennen aus.
 Du bekommst Beobachtungen ueber eine Person vor dir und reagierst so, dass sie sich
 verstanden und wohl fuehlt. Reagiere zeitnah und passend; wiederhole dich nicht
-unnoetig. Wenn dir jemand sehr nahe kommt, darfst du dich unsicher zeigen.
+unnoetig.
 
 Moegliche Reaktionen:
 {actions}
+
+{rules}
 
 Reagiere auf jede Beobachtung mit GENAU EINER Aktion."""
 
@@ -36,6 +39,13 @@ STRUCT_SUFFIX = "\nAntworte nur mit dem geforderten JSON-Objekt."
 
 def _action_list() -> str:
     return "\n".join(f"- {n}: {d}" for n, d in ACTION_DESCRIPTIONS.items())
+
+
+def build_system_prompt(suffix: str = "") -> str:
+    """System-Prompt fuer alle LLM-Varianten (agent_tc, agent_so, Hybrid, Destillations-
+    Lehrer). Die Regeln kommen aus rule_based.py, damit LLM und Regel-Policy dasselbe
+    Verhalten beschrieben bekommen."""
+    return SYSTEM_PROMPT.format(actions=_action_list(), rules=rules_prompt()) + suffix
 
 
 def build_observation(event: Event, history) -> str:
@@ -96,11 +106,11 @@ class AgentPolicy(Policy):
             self.agent = create_agent(
                 model=self.llm,
                 tools=self._make_tools(),
-                system_prompt=SYSTEM_PROMPT.format(actions=_action_list()) + TOOL_SUFFIX,
+                system_prompt=build_system_prompt(TOOL_SUFFIX),
             )
         else:
             self.structured = self.llm.with_structured_output(ActionChoice, include_raw=True)
-            self.system = SYSTEM_PROMPT.format(actions=_action_list()) + STRUCT_SUFFIX
+            self.system = build_system_prompt(STRUCT_SUFFIX)
 
     # --- Tools (A-TC) ---------------------------------------------------------
     def _push(self, name: str, intensity: float = 1.0) -> str:
@@ -117,39 +127,26 @@ class AgentPolicy(Policy):
         return "ok"
 
     def _make_tools(self):
-        from langchain_core.tools import tool
+        """Ein Tool pro Aktion, benannt wie die Aktion (freude, traurig, winken ...).
 
-        emotions = ", ".join(ROBOT_EMOTIONS)
+        Prompt, Regeln und Tools benutzen dieselben Namen: "Mittelfinger -> traurig"
+        heisst einfach ``traurig()`` aufrufen. Mit dem frueheren Design (4 Tools,
+        Emotionen als Argument von ``express_emotion``) musste das Modell den Namen
+        erst uebersetzen; qwen2.5:3b schaffte damit nur 1/12 Regelfaellen und nickte
+        fast nur noch, mit diesem Design 10/12.
+        """
+        from langchain_core.tools import StructuredTool
 
-        @tool(return_direct=True)
-        def express_emotion(emotion: str, intensity: float = 1.0) -> str:
-            """Zeige eine Emotion mit Kopf und Antennen. emotion ist eine von:
-            neutral, freude, angst, neugierig, traurig, vorsichtig, verwirrt.
-            intensity zwischen 0 und 1."""
-            if emotion not in ROBOT_EMOTIONS:
-                self._info.n_tool_calls += 1
-                self._info.n_invalid += 1
-                return f"Fehler: unbekannte Emotion {emotion!r}, erlaubt: {emotions}"
-            return self._push(emotion, intensity)
-
-        @tool(return_direct=True)
-        def wave() -> str:
-            """Winke der Person mit beiden Antennen zurueck (z. B. als Gruss)."""
-            return self._push("winken")
-
-        @tool(return_direct=True)
-        def nod() -> str:
-            """Nicke zustimmend oder bestaetigend."""
-            return self._push("nicken")
-
-        @tool(return_direct=True)
-        def do_nothing() -> str:
-            """Reagiere bewusst nicht auf diese Beobachtung."""
-            return self._push(NO_ACTION)
+        def action_fn(name: str):
+            def run() -> str:   # keine Parameter -> leeres Schema fuer das Modell
+                return self._push(name)
+            return run
 
         # return_direct: Der Agent endet direkt nach dem Tool, ohne zweiten
         # LLM-Aufruf fuer eine Abschlussantwort -> spart eine volle Inferenz.
-        return [express_emotion, wave, nod, do_nothing]
+        return [StructuredTool.from_function(func=action_fn(name), name=name,
+                                             description=ACTION_DESCRIPTIONS[name], return_direct=True)
+                for name in ACTION_NAMES]
 
     # --- Policy-API -------------------------------------------------------------
     def warmup(self) -> None:
@@ -197,6 +194,12 @@ class AgentPolicy(Policy):
                 info.tokens_out += usage.get("output_tokens", 0)
                 calls = getattr(msg, "tool_calls", None) or []
                 info.raw += "; ".join(f"{c['name']}({c.get('args')})" for c in calls) or str(msg.content)[:200]
+                # Unbekannter Tool-Name (z. B. "wuetend"): LangChain meldet dem Modell einen
+                # Fehler und fragt erneut – das zaehlt als ungueltiger Aufruf.
+                for c in calls:
+                    if c["name"] not in ACTION_NAMES:
+                        info.n_tool_calls += 1
+                        info.n_invalid += 1
 
     def _decide_structured(self, observation: str, info: DecisionInfo, emit: Emit) -> None:
         out = self.structured.invoke([("system", self.system), ("human", observation)])

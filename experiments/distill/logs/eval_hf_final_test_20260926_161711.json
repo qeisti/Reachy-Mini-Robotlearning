@@ -1,0 +1,1932 @@
+{
+  "timestamp": "2026-09-26 16:17:11",
+  "backend": "hf",
+  "model": "experiments/distill/model/final",
+  "data": "experiments/distill/data.jsonl",
+  "split": "test",
+  "n": 292,
+  "match": 0.8013698630136986,
+  "other": 0.19863013698630136,
+  "invalid": 0.0,
+  "per_event_type": {
+    "distance_changed": {
+      "match": 32,
+      "other": 13
+    },
+    "emotion_changed": {
+      "match": 87,
+      "other": 5
+    },
+    "gesture": {
+      "match": 33,
+      "other": 12
+    },
+    "person_appeared": {
+      "match": 40
+    },
+    "person_left": {
+      "match": 20,
+      "other": 20
+    },
+    "speech": {
+      "match": 22,
+      "other": 8
+    }
+  },
+  "confusion": [
+    {
+      "teacher": "nichts",
+      "student": "neutral",
+      "count": 8
+    },
+    {
+      "teacher": "neutral",
+      "student": "nichts",
+      "count": 5
+    },
+    {
+      "teacher": "winken",
+      "student": "freude",
+      "count": 5
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "neutral",
+      "count": 5
+    },
+    {
+      "teacher": "neutral",
+      "student": "vorsichtig",
+      "count": 3
+    },
+    {
+      "teacher": "nicken",
+      "student": "neutral",
+      "count": 3
+    },
+    {
+      "teacher": "nichts",
+      "student": "vorsichtig",
+      "count": 3
+    },
+    {
+      "teacher": "freude",
+      "student": "winken",
+      "count": 3
+    },
+    {
+      "teacher": "neugierig",
+      "student": "freude",
+      "count": 2
+    },
+    {
+      "teacher": "traurig",
+      "student": "vorsichtig",
+      "count": 2
+    },
+    {
+      "teacher": "traurig",
+      "student": "neutral",
+      "count": 2
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "freude",
+      "count": 1
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "traurig",
+      "count": 1
+    },
+    {
+      "teacher": "verwirrt",
+      "student": "freude",
+      "count": 1
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "count": 1
+    },
+    {
+      "teacher": "winken",
+      "student": "traurig",
+      "count": 1
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "count": 1
+    },
+    {
+      "teacher": "verwirrt",
+      "student": "neugierig",
+      "count": 1
+    },
+    {
+      "teacher": "nichts",
+      "student": "nicken",
+      "count": 1
+    },
+    {
+      "teacher": "neugierig",
+      "student": "vorsichtig",
+      "count": 1
+    },
+    {
+      "teacher": "nicken",
+      "student": "vorsichtig",
+      "count": 1
+    },
+    {
+      "teacher": "nicken",
+      "student": "freude",
+      "count": 1
+    },
+    {
+      "teacher": "angst",
+      "student": "vorsichtig",
+      "count": 1
+    },
+    {
+      "teacher": "verwirrt",
+      "student": "vorsichtig",
+      "count": 1
+    },
+    {
+      "teacher": "winken",
+      "student": "vorsichtig",
+      "count": 1
+    },
+    {
+      "teacher": "freude",
+      "student": "neugierig",
+      "count": 1
+    },
+    {
+      "teacher": "neugierig",
+      "student": "nicken",
+      "count": 1
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "neugierig",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "verwirrt",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "call:nod{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": "nicken",
+      "raw": "call:nod{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "verwirrt",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "neugierig",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": "nicken",
+      "raw": "call:nod{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": "nicken",
+      "raw": "call:nod{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": "nicken",
+      "raw": "call:nod{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nichts",
+      "raw": "call:do_nothing{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "nicken",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "verwirrt",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "winken",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "call:nod{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:express_emotion{emotion:<escape>freude<escape>,intensity:1}<end_function_ca"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "neugierig",
+      "raw": "call:express_emotion{emotion:<escape>neugierig<escape>,intensity:1}<end_function"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:express_emotion{emotion:<escape>traurig<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "vorsichtig",
+      "raw": "call:express_emotion{emotion:<escape>vorsichtig<escape>,intensity:1}<end_functio"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "call:wave{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "neutral",
+      "raw": "call:express_emotion{emotion:<escape>neutral<escape>,intensity:1}<end_function_c"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+3011 Beispiele -> experiments/distill/data_v2_rules.jsonl
+  Ziel aus Regel: 2727, aus Lehrer (frei): 284
+  geaendert: 510 (16.9 %)
+  Beobachtung unveraendert: 1695, mit korrigiertem Verlauf neu: 1316
+    emotion_changed   Lehrer traurig    -> Regel vorsichtig 106x
+    emotion_changed   Lehrer angst      -> Regel vorsichtig 92x
+    emotion_changed   Lehrer neugierig  -> Regel vorsichtig 67x
+    person_appeared   Lehrer freude     -> Regel neugierig  54x
+    emotion_changed   Lehrer freude     -> Regel vorsichtig 39x
+    person_appeared   Lehrer traurig    -> Regel neugierig  20x
+    distance_changed  Lehrer angst      -> Regel vorsichtig 18x
+    person_appeared   Lehrer traurig    -> Regel vorsichtig 17x
+    emotion_changed   Lehrer neutral    -> Regel vorsichtig 14x

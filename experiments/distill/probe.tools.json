@@ -1,0 +1,68 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "express_emotion",
+      "description": "Zeige eine Emotion mit Kopf und Antennen.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "emotion": {
+            "type": "string",
+            "enum": [
+              "neutral",
+              "freude",
+              "angst",
+              "neugierig",
+              "traurig",
+              "vorsichtig",
+              "verwirrt"
+            ]
+          },
+          "intensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 1.0
+          }
+        },
+        "required": [
+          "emotion"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "wave",
+      "description": "Winke der Person mit beiden Antennen zurueck (z. B. als Gruss).",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "nod",
+      "description": "Nicke zustimmend oder bestaetigend.",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "do_nothing",
+      "description": "Reagiere bewusst nicht auf diese Beobachtung.",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  }
+]

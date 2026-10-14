@@ -1,18 +1,23 @@
+# Laufzeit (Conda-Umgebung ``reachy_mini``).
+# Destillation/Training: siehe requirements-distill.txt
+#
 # Roboter + Wahrnehmung
-reachy-mini
-mediapipe
-opencv-python
-numpy
-sounddevice
-vosk
+reachy-mini>=1.10.0
+mediapipe>=1.0.1
+opencv-python>=5.0.0.93
+numpy>=2.5
+scipy>=1.18
+sounddevice>=0.5.6
+vosk>=0.3.45
 # Agent (LangChain + lokales LLM ueber Ollama)
-langchain>=1.0
-langchain-ollama>=1.0
-pydantic>=2
+langchain>=1.4
+langchain-core>=1.6
+langchain-ollama>=1.1
+pydantic>=2.13
 # Messung + Auswertung
-psutil
-pandas
-matplotlib
-tabulate
+psutil>=7.2
+pandas>=3.0
+matplotlib>=3.10
+tabulate>=0.10
 # Tests
-pytest
+pytest>=9.0

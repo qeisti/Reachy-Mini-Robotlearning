@@ -1,0 +1,161 @@
+{
+  "source": "experiments/distill/data_v2.jsonl",
+  "examples": 3011,
+  "label_sources": {
+    "rule": 2727,
+    "teacher": 284
+  },
+  "changed": 510,
+  "changes": [
+    {
+      "event_type": "emotion_changed",
+      "llm": "traurig",
+      "rule": "vorsichtig",
+      "count": 106
+    },
+    {
+      "event_type": "emotion_changed",
+      "llm": "angst",
+      "rule": "vorsichtig",
+      "count": 92
+    },
+    {
+      "event_type": "emotion_changed",
+      "llm": "neugierig",
+      "rule": "vorsichtig",
+      "count": 67
+    },
+    {
+      "event_type": "person_appeared",
+      "llm": "freude",
+      "rule": "neugierig",
+      "count": 54
+    },
+    {
+      "event_type": "emotion_changed",
+      "llm": "freude",
+      "rule": "vorsichtig",
+      "count": 39
+    },
+    {
+      "event_type": "person_appeared",
+      "llm": "traurig",
+      "rule": "neugierig",
+      "count": 20
+    },
+    {
+      "event_type": "distance_changed",
+      "llm": "angst",
+      "rule": "vorsichtig",
+      "count": 18
+    },
+    {
+      "event_type": "person_appeared",
+      "llm": "traurig",
+      "rule": "vorsichtig",
+      "count": 17
+    },
+    {
+      "event_type": "emotion_changed",
+      "llm": "neutral",
+      "rule": "vorsichtig",
+      "count": 14
+    },
+    {
+      "event_type": "person_appeared",
+      "llm": "angst",
+      "rule": "vorsichtig",
+      "count": 14
+    },
+    {
+      "event_type": "emotion_changed",
+      "llm": "traurig",
+      "rule": "angst",
+      "count": 14
+    },
+    {
+      "event_type": "gesture",
+      "llm": "traurig",
+      "rule": "freude",
+      "count": 13
+    },
+    {
+      "event_type": "gesture",
+      "llm": "angst",
+      "rule": "freude",
+      "count": 10
+    },
+    {
+      "event_type": "person_appeared",
+      "llm": "angst",
+      "rule": "neugierig",
+      "count": 9
+    },
+    {
+      "event_type": "emotion_changed",
+      "llm": "vorsichtig",
+      "rule": "angst",
+      "count": 6
+    },
+    {
+      "event_type": "distance_changed",
+      "llm": "traurig",
+      "rule": "vorsichtig",
+      "count": 4
+    },
+    {
+      "event_type": "distance_changed",
+      "llm": "traurig",
+      "rule": "angst",
+      "count": 3
+    },
+    {
+      "event_type": "emotion_changed",
+      "llm": "freude",
+      "rule": "angst",
+      "count": 2
+    },
+    {
+      "event_type": "speech",
+      "llm": "traurig",
+      "rule": "winken",
+      "count": 2
+    },
+    {
+      "event_type": "speech",
+      "llm": "angst",
+      "rule": "winken",
+      "count": 1
+    },
+    {
+      "event_type": "emotion_changed",
+      "llm": "neutral",
+      "rule": "angst",
+      "count": 1
+    },
+    {
+      "event_type": "distance_changed",
+      "llm": "neutral",
+      "rule": "traurig",
+      "count": 1
+    },
+    {
+      "event_type": "distance_changed",
+      "llm": "neugierig",
+      "rule": "neutral",
+      "count": 1
+    },
+    {
+      "event_type": "distance_changed",
+      "llm": "freude",
+      "rule": "neutral",
+      "count": 1
+    },
+    {
+      "event_type": "distance_changed",
+      "llm": "freude",
+      "rule": "neugierig",
+      "count": 1
+    }
+  ]
+}

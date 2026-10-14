@@ -6,6 +6,9 @@ SETUP.md
 models/vosk-model-small-de-0.15/
 models/vosk-model-small-de-0.15.zip
 experiments/results/
+# Destillation: Checkpoints und GGUF sind gross und reproduzierbar
+experiments/distill/model*/
+experiments/distill/*.gguf
 experiments/stimuli/*.mp4
 *.egg-info/
 .venv/
@@ -18,3 +21,8 @@ paper/*.fls
 paper/*.log
 paper/*.out
 paper/*.synctex.gz
+# Paper wird nicht im Repo versioniert
+paper/
+MVSR_Paper_Template_Englisch/
+MVSR_Paper_Template_Englisch.zip
+papert.zip

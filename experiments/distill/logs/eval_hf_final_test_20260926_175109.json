@@ -1,0 +1,1843 @@
+{
+  "timestamp": "2026-09-26 17:51:09",
+  "backend": "hf",
+  "model": "experiments/distill/model_v2/final",
+  "data": "experiments/distill/data_v2_rules.jsonl",
+  "split": "test",
+  "n": 292,
+  "match": 0.952054794520548,
+  "other": 0.04794520547945205,
+  "invalid": 0.0,
+  "per_event_type": {
+    "distance_changed": {
+      "match": 45
+    },
+    "emotion_changed": {
+      "match": 92
+    },
+    "gesture": {
+      "match": 45
+    },
+    "person_appeared": {
+      "match": 40
+    },
+    "person_left": {
+      "match": 40
+    },
+    "speech": {
+      "other": 14,
+      "match": 16
+    }
+  },
+  "confusion": [
+    {
+      "teacher": "freude",
+      "student": "vorsichtig",
+      "count": 3
+    },
+    {
+      "teacher": "winken",
+      "student": "vorsichtig",
+      "count": 2
+    },
+    {
+      "teacher": "winken",
+      "student": "freude",
+      "count": 1
+    },
+    {
+      "teacher": "winken",
+      "student": "angst",
+      "count": 1
+    },
+    {
+      "teacher": "angst",
+      "student": "traurig",
+      "count": 1
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "freude",
+      "count": 1
+    },
+    {
+      "teacher": "angst",
+      "student": "freude",
+      "count": 1
+    },
+    {
+      "teacher": "traurig",
+      "student": "vorsichtig",
+      "count": 1
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "angst",
+      "count": 1
+    },
+    {
+      "teacher": "freude",
+      "student": "angst",
+      "count": 1
+    },
+    {
+      "teacher": "neugierig",
+      "student": "vorsichtig",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "call:angst{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "call:neugierig{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "call:freude{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neugierig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "call:vorsichtig{}<end_function_call>"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "call:traurig{}<end_function_call>"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "call:winken{}<end_function_call>"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "call:neutral{}<end_function_call>"
+    }
+  ]
+}
