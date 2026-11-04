@@ -49,25 +49,36 @@ def test_rules(event, expected):
 
 # --- Agent mit Tool-Calling ----------------------------------------------------
 def test_agent_tool_calling_emits_action():
-    p = make_policy("agent_tc", llm=tool_model([("express_emotion", {"emotion": "freude", "intensity": 0.7})]))
+    p = make_policy("agent_tc", llm=tool_model([("freude", {})]))
     acts, info = collect(p, ev("emotion_changed", emotion="freude", distance="weit"))
     assert [a.name for a in acts] == ["freude"]
-    assert acts[0].intensity == pytest.approx(0.7)
     assert info.n_llm_calls == 1          # return_direct: kein zweiter LLM-Aufruf
     assert info.n_tool_calls == 1 and info.n_invalid == 0
     assert info.tokens_in == 100
     assert "Bisheriger Verlauf" not in p.history[-1]
 
 
-def test_agent_tool_calling_invalid_argument():
-    p = make_policy("agent_tc", llm=tool_model([("express_emotion", {"emotion": "wuetend"})]))
+def test_agent_tool_calling_unknown_tool_then_retry():
+    # "wuetend" ist kein Tool -> LangChain meldet einen Fehler, das Modell versucht es erneut.
+    p = make_policy("agent_tc", llm=tool_model([("wuetend", {}), ("angst", {})]))
     acts, info = collect(p, ev("emotion_changed", emotion="wuetend"))
-    assert acts == []
-    assert info.n_invalid == 1
+    assert [a.name for a in acts] == ["angst"]
+    assert info.n_invalid == 1 and info.n_llm_calls == 2
+
+
+def test_agent_tools_match_actions():
+    from langchain_core.utils.function_calling import convert_to_openai_tool
+    from reachy_hri.actions import ACTION_NAMES
+
+    p = make_policy("agent_tc", llm=tool_model([("nichts", {})]))
+    tools = p._make_tools()
+    assert [t.name for t in tools] == ACTION_NAMES     # ein Tool pro Aktion, gleiche Namen
+    for t in tools:                                    # keine Argumente im Schema
+        assert not convert_to_openai_tool(t)["function"]["parameters"].get("properties")
 
 
 def test_agent_tool_calling_gesture_tools():
-    p = make_policy("agent_tc", llm=tool_model([("wave", {}), ("nod", {}), ("do_nothing", {})]))
+    p = make_policy("agent_tc", llm=tool_model([("winken", {}), ("nicken", {}), ("nichts", {})]))
     names = [collect(p, ev("gesture", gesture="winken"))[0][0].name for _ in range(3)]
     assert names == ["winken", "nicken", "nichts"]
 
@@ -146,7 +157,7 @@ def test_end_to_end(tmp_path):
         "agent_so": make_policy("agent_so", llm=FakeStructuredModel(
             [{"action": "freude"}, {"action": "neugierig"}, None], delay=0.05)),
         "agent_tc": make_policy("agent_tc", llm=tool_model(
-            [("express_emotion", {"emotion": "freude"}), ("wave", {})], delay=0.08)),
+            [("freude", {}), ("winken", {})], delay=0.08)),
     }
     for name, pol in policies.items():
         for k in range(2):

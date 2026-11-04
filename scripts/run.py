@@ -75,7 +75,7 @@ def main() -> None:
     ap.add_argument("--source", default="webcam:0",
                     help="webcam:<idx> | reachy | <video.mp4> | <szenario.json>")
     ap.add_argument("--robot", default="reachy", choices=["reachy", "mock"])
-    ap.add_argument("--model", default=config.DEFAULT_MODEL, help="Ollama-Modell, z. B. qwen2.5:3b")
+    ap.add_argument("--model", default=config.DEFAULT_MODEL, help="Ollama-Modell, z. B. qwen2.5:14b")
     ap.add_argument("--ollama-url", default=config.OLLAMA_BASE_URL)
     ap.add_argument("--runs", type=int, default=1)
     ap.add_argument("--duration", type=float, default=None, help="Laufzeit bei Webcam/Reachy [s]")

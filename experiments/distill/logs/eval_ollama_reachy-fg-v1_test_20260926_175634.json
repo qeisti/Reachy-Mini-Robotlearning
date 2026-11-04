@@ -1,0 +1,1786 @@
+{
+  "timestamp": "2026-09-26 17:56:34",
+  "backend": "ollama",
+  "model": "reachy-fg-v1",
+  "data": "experiments/distill/data.jsonl",
+  "split": "test",
+  "n": 292,
+  "match": 0.0,
+  "other": 0.0,
+  "invalid": 1.0,
+  "per_event_type": {
+    "distance_changed": {
+      "invalid": 45
+    },
+    "emotion_changed": {
+      "invalid": 92
+    },
+    "gesture": {
+      "invalid": 45
+    },
+    "person_appeared": {
+      "invalid": 40
+    },
+    "person_left": {
+      "invalid": 40
+    },
+    "speech": {
+      "invalid": 30
+    }
+  },
+  "confusion": [],
+  "results": [
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "verwirrt",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "verwirrt",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "verwirrt",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "winken",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'freude', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neugierig', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'traurig', 'intensity': 1})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'vorsichtig', 'intensity': 1})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "express_emotion({'emotion': 'neutral', 'intensity': 1})"
+    }
+  ]
+}

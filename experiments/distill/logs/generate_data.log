@@ -1,0 +1,10 @@
+Lehrer qwen2.5:14b laden ...
+3011 Beispiele in 711 s (0.24 s/Beispiel), 0 uebersprungen -> experiments/distill/data.jsonl
+Verteilung der Lehrer-Aktionen je Ereignistyp:
+  distance_changed  n=559  vorsichtig 50%, neutral 19%, nicken 11%, nichts 9%, neugierig 6%, winken 2%, angst 2%, freude 1%, traurig 0%
+  emotion_changed   n=900  vorsichtig 22%, traurig 22%, neugierig 21%, freude 15%, neutral 15%, angst 3%, verwirrt 1%, nicken 1%, winken 0%, nichts 0%
+  gesture           n=419  winken 33%, freude 29%, vorsichtig 27%, traurig 6%, neugierig 2%, verwirrt 2%, nichts 0%, nicken 0%, angst 0%
+  person_appeared   n=400  neutral 41%, freude 22%, vorsichtig 16%, traurig 9%, neugierig 8%, winken 3%
+  person_left       n=400  neutral 55%, nichts 30%, vorsichtig 13%, traurig 2%
+  speech            n=333  winken 25%, freude 21%, vorsichtig 19%, nicken 13%, traurig 11%, neugierig 7%, verwirrt 2%, nichts 2%, neutral 1%
+[exited with code 0]

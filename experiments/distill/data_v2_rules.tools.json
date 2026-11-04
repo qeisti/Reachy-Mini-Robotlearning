@@ -1,0 +1,112 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "neutral",
+      "description": "entspannte Grundhaltung",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "freude",
+      "description": "froehlich, Antennen hoch, Kopf leicht angehoben",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "angst",
+      "description": "aengstlich, zieht Kopf ein, Antennen ganz nach hinten",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "neugierig",
+      "description": "neugierig, Kopf schief gelegt",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "traurig",
+      "description": "traurig, Kopf gesenkt, Antennen haengen",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "vorsichtig",
+      "description": "vorsichtig/abwartend, Antennen angelegt",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "verwirrt",
+      "description": "verwirrt, Kopf schief, Antennen asymmetrisch",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "winken",
+      "description": "mit beiden Antennen zurueckwinken",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "nicken",
+      "description": "zustimmend nicken",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "nichts",
+      "description": "bewusst nicht reagieren",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    }
+  }
+]

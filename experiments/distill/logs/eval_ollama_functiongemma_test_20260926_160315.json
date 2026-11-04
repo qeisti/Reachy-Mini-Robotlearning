@@ -1,0 +1,1879 @@
+{
+  "timestamp": "2026-09-26 16:03:15",
+  "backend": "ollama",
+  "model": "functiongemma",
+  "data": "experiments/distill/data.jsonl",
+  "split": "test",
+  "n": 292,
+  "match": 0.017123287671232876,
+  "other": 0.5856164383561644,
+  "invalid": 0.3972602739726027,
+  "per_event_type": {
+    "distance_changed": {
+      "other": 27,
+      "invalid": 18
+    },
+    "emotion_changed": {
+      "invalid": 21,
+      "other": 71
+    },
+    "gesture": {
+      "invalid": 35,
+      "match": 5,
+      "other": 5
+    },
+    "person_appeared": {
+      "other": 35,
+      "invalid": 5
+    },
+    "person_left": {
+      "other": 26,
+      "invalid": 14
+    },
+    "speech": {
+      "invalid": 23,
+      "other": 7
+    }
+  },
+  "confusion": [
+    {
+      "teacher": "neutral",
+      "student": "nicken",
+      "count": 26
+    },
+    {
+      "teacher": "neutral",
+      "student": "winken",
+      "count": 21
+    },
+    {
+      "teacher": "freude",
+      "student": "winken",
+      "count": 21
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "count": 20
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "count": 20
+    },
+    {
+      "teacher": "neugierig",
+      "student": "winken",
+      "count": 18
+    },
+    {
+      "teacher": "traurig",
+      "student": "winken",
+      "count": 10
+    },
+    {
+      "teacher": "neugierig",
+      "student": "nicken",
+      "count": 8
+    },
+    {
+      "teacher": "nichts",
+      "student": "nicken",
+      "count": 7
+    },
+    {
+      "teacher": "traurig",
+      "student": "nicken",
+      "count": 6
+    },
+    {
+      "teacher": "freude",
+      "student": "nicken",
+      "count": 5
+    },
+    {
+      "teacher": "nicken",
+      "student": "winken",
+      "count": 3
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "nichts",
+      "count": 2
+    },
+    {
+      "teacher": "verwirrt",
+      "student": "nicken",
+      "count": 1
+    },
+    {
+      "teacher": "winken",
+      "student": "nicken",
+      "count": 1
+    },
+    {
+      "teacher": "neugierig",
+      "student": "nichts",
+      "count": 1
+    },
+    {
+      "teacher": "nichts",
+      "student": "winken",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' froehlich'})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' traurig'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': ' ueberrascht'})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "express_emotion({'emotion': ' neutral', 'intensity': 0.8})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' freude '})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'emotion': ' freude'})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "verwirrt",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "traurig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': ' ueberscheinend'})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.34, ' emotion': ' traurig'})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' freude '})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.4, ' emotion': ' traurig'})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' freude '})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' freude '})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.32, ' emotion': ' traurig'})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "verwirrt",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': ' loveU loveU', 'intensity': 3})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' freude '})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "express_emotion({'emotion': ' freude', 'intensity': 0.7})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' freude '})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "wave({'emotion': ' glücklich und zufrieden'})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.26, ' emotion': ' neutral'})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": "nichts",
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' neutral'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "nichts",
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': ' good morning', 'intensity': 3})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.78, ' emotion': ' traurig'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "nicken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nicken",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': ' freudig', 'intensity': 3})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.76, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "nicken",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "nichts",
+      "raw": "do_nothing({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' froehlich'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7, ' emotion': ' uetend'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "verwirrt",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' neugierig '})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "nichts",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 1, ' emotion': ' froehlich'})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.7})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.75, ' emotion': ' traurig'})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "nichts",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neutral",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": null,
+      "raw": "express_emotion({'emotion': ' Victory', 'intensity': 3})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neugierig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": null,
+      "raw": ""
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "winken",
+      "raw": "wave({'intensity': 0.5, ' emotion': ' freude'})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "winken",
+      "raw": "wave({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": null,
+      "raw": "({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "nicken",
+      "raw": "nod({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "vorsichtig",
+      "student": "nicken",
+      "raw": "nod({})"
+    }
+  ]
+}

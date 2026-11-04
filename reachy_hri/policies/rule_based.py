@@ -31,6 +31,35 @@ GESTURE_REACTIONS = {
 GREETING_WORDS = ("hallo", "hi", "servus", "guten tag", "hey")
 
 
+def rules_prompt() -> str:
+    """Die Regeln dieser Datei als Text fuer den LLM-Prompt.
+
+    Wird aus denselben Tabellen erzeugt, die ``RuleBasedPolicy`` benutzt: Aendert
+    man eine Regel, sehen Regel-Policy und LLM automatisch dasselbe Verhalten.
+    Die Werte (nah, mittel, mittelfinger, Thumb_Up ...) stehen genau so im Text,
+    wie sie in den Beobachtungen vorkommen.
+    """
+    def grouped(table: dict[str, str]) -> list[str]:
+        by_action: dict[str, list[str]] = {}
+        for trigger, action in table.items():
+            by_action.setdefault(action, []).append(f"'{trigger}'")
+        return [f"{' / '.join(t)} -> {a}" for a, t in by_action.items()]
+
+    far = [k for k in ("weit",) if k not in DISTANCE_REACTIONS]
+    lines = ["Feste Regeln (haben Vorrang vor allem anderen):"]
+    lines += [f"- Die Person ist '{d}' -> {a}. Das gilt auch, wenn sie auftaucht oder ihr Gesicht sich aendert."
+              for d, a in DISTANCE_REACTIONS.items()]
+    lines.append(f"- Nur wenn die Person '{'/'.join(far) or 'weit'}' ist, zaehlt ihr Gesichtsausdruck: "
+                 + ", ".join(grouped(FACE_EMOTION_REACTIONS)) + ".")
+    lines.append(f"- Eine Person taucht auf und ist '{'/'.join(far) or 'weit'}' -> neugierig.")
+    lines.append("- Die Person verlaesst das Bild -> neutral.")
+    lines.append("- Gesten: " + ", ".join(grouped(GESTURE_REACTIONS)) + ". Andere Gesten -> nichts.")
+    lines.append("- Die Person begruesst dich (" + ", ".join(f"'{w}'" for w in GREETING_WORDS) + ") -> winken.")
+    lines.append("In allen anderen Faellen, z. B. bei anderen Aussagen, entscheidest du selbst passend "
+                 "zur Situation und zum bisherigen Verlauf.")
+    return "\n".join(lines)
+
+
 def resolve_emotion(face_emotion: str | None, distance: str | None) -> str:
     if distance in DISTANCE_REACTIONS:
         return DISTANCE_REACTIONS[distance]

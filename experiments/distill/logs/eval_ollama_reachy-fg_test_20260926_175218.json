@@ -1,0 +1,1855 @@
+{
+  "timestamp": "2026-09-26 17:52:18",
+  "backend": "ollama",
+  "model": "reachy-fg",
+  "data": "experiments/distill/data_v2_rules.jsonl",
+  "split": "test",
+  "n": 292,
+  "match": 0.8595890410958904,
+  "other": 0.1404109589041096,
+  "invalid": 0.0,
+  "per_event_type": {
+    "distance_changed": {
+      "other": 8,
+      "match": 37
+    },
+    "emotion_changed": {
+      "other": 20,
+      "match": 72
+    },
+    "gesture": {
+      "match": 45
+    },
+    "person_appeared": {
+      "match": 40
+    },
+    "person_left": {
+      "match": 40
+    },
+    "speech": {
+      "other": 13,
+      "match": 17
+    }
+  },
+  "confusion": [
+    {
+      "teacher": "neugierig",
+      "student": "neutral",
+      "count": 17
+    },
+    {
+      "teacher": "traurig",
+      "student": "neutral",
+      "count": 7
+    },
+    {
+      "teacher": "freude",
+      "student": "neutral",
+      "count": 4
+    },
+    {
+      "teacher": "freude",
+      "student": "vorsichtig",
+      "count": 3
+    },
+    {
+      "teacher": "winken",
+      "student": "vorsichtig",
+      "count": 2
+    },
+    {
+      "teacher": "winken",
+      "student": "freude",
+      "count": 1
+    },
+    {
+      "teacher": "winken",
+      "student": "angst",
+      "count": 1
+    },
+    {
+      "teacher": "angst",
+      "student": "traurig",
+      "count": 1
+    },
+    {
+      "teacher": "angst",
+      "student": "freude",
+      "count": 1
+    },
+    {
+      "teacher": "traurig",
+      "student": "vorsichtig",
+      "count": 1
+    },
+    {
+      "teacher": "vorsichtig",
+      "student": "angst",
+      "count": 1
+    },
+    {
+      "teacher": "freude",
+      "student": "angst",
+      "count": 1
+    },
+    {
+      "teacher": "neugierig",
+      "student": "vorsichtig",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "freude",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "freude",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "angst",
+      "student": "angst",
+      "raw": "angst({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neugierig",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "freude",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "neugierig",
+      "student": "neugierig",
+      "raw": "neugierig({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "distance_changed",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "freude",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    },
+    {
+      "event_type": "person_appeared",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "freude",
+      "student": "freude",
+      "raw": "freude({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "neugierig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "emotion_changed",
+      "teacher": "vorsichtig",
+      "student": "vorsichtig",
+      "raw": "vorsichtig({})"
+    },
+    {
+      "event_type": "gesture",
+      "teacher": "traurig",
+      "student": "traurig",
+      "raw": "traurig({})"
+    },
+    {
+      "event_type": "speech",
+      "teacher": "winken",
+      "student": "winken",
+      "raw": "winken({})"
+    },
+    {
+      "event_type": "person_left",
+      "teacher": "neutral",
+      "student": "neutral",
+      "raw": "neutral({})"
+    }
+  ]
+}
