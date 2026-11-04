@@ -1,21 +1,23 @@
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts
+\usepackage[T1]{fontenc}
 \usepackage{cite}
 \usepackage{url}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{booktabs}
 \begin{document}
 
 % Stichpunkt-Liste mit wenig Abstand
 \newenvironment{points}{\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}}{\end{itemize}}
 
-% Stand: Fortschrittsbericht 1
-%  - stichwortartiger Aufbau: Ueberschriften + Stichpunkte je Kapitel
-%  - ausformulierter wissenschaftlicher Beitrag: Problemstellung, Forschungsfrage (Kap. I)
+% Stand: Fortschrittsbericht 1, ueberarbeitet nach Feedback (Punkte 1-12)
+%  - Kap. I + II ausformuliert und belegt; Kap. III-V stichwortartig
+%  - Frameworks nur in III-E "Implementation Details"
 
-\title{Rule-Based or LLM Agent? Real-Time Behaviour Selection\\ for an Emotion-Responsive Reachy Mini}
+\title{Rules or LLM Agents? Real-Time Behaviour\\ Selection for an Emotion-Responsive Robot}
 
 \author{\IEEEauthorblockN{Alexander Scheidl}
 \IEEEauthorblockA{UAS Technikum Wien}
@@ -29,127 +31,255 @@
 \begin{abstract}
 \textit{Outline (written last):}
 \begin{points}
-    \item Problem: LLM agents promise flexible social behaviour but may be too slow for real-time emotional reactions.
-    \item Method: rule-based controller vs.\ local LLM agent on the Reachy Mini, identical perception and actions, first in simulation, then on the robot.
-    \item Result and conclusion: latency, resources and behavioural quality; answer to the research question.
+    \item Problem: social robots must react to a person's emotional state within about one second; LLM agents promise more flexible reactions than hand-crafted rules, but it is unknown whether they meet this timing on robot hardware.
+    \item Method: controlled comparison of a rule-based controller, LLM-agent variants, a hybrid and a distilled small model, with identical perception and actions, on the onboard computer and on an edge GPU.
+    \item Result and conclusion: latency, resources, validity, consistency and appropriateness; answer to the research question.
 \end{points}
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Social robots are expected to notice how a person feels and to react to it.
-Even a robot with a strongly reduced expressive channel can do so: observers
-rate the Reachy Mini as warmer and more sociable when it expresses positive
-affect through head and antenna motion alone \cite{Rogel2026Reachy}.
+Social robots are robots designed to interact with people in a socially
+meaningful way, communicating through speech, gaze, gesture and
+expression \cite{Fong2003Survey}. They are used as companions, assistants
+and tutors, and they belong to a growing professional service-robot market
+whose global sales rose by 24\,\% to almost 250\,000 units in 2025
+\cite{IFR2026Service}.
 
-\textbf{Problem statement.} The component that maps the perceived state of a
-person to the robot's reaction -- the \emph{behaviour-selection layer} -- is
-usually implemented with hand-written rules. Rules are fast and predictable,
-but every situation has to be anticipated, and repeated situations lead to
-identical, mechanical reactions. Large language models (LLMs) used as
-tool-calling agents \cite{Yao2023ReAct} offer an alternative: the reaction is
-chosen from a textual description of the situation and the interaction
-history, which promises more varied and context-sensitive behaviour.
-Frameworks such as LangChain \cite{LangChain} and local inference servers such
-as Ollama \cite{Ollama} make this possible without a cloud connection.
-However, LLM inference takes hundreds of milliseconds to seconds, requires
-considerable compute and memory, and does not guarantee valid or reproducible
-outputs. This conflicts with the timing requirement of social interaction:
-users prefer robot responses after about one second \cite{Shiwa2008Respond},
-and a reaction that comes too late is no longer read as a response. It is
-therefore unclear whether an LLM agent can replace rule-based behaviour
-selection on a small robot in real time, and what it offers in return for its
-cost.
+Whether such a robot succeeds depends less on its mechanics than on the
+quality of the interaction, which is the subject of human--robot interaction
+(HRI) research \cite{Goodrich2007HRI}. A central requirement is affective
+responsiveness: the robot has to recognise how a person feels and react to it
+appropriately. Emotion recognition from faces, body and voice has matured
+to the point where it runs in real time during interaction with physical
+robots \cite{Spezialetti2020Emotion}. The reaction also has to come in time: users
+prefer robot responses after about one second, and a robot should react
+within two \cite{Shiwa2008Respond}. Even a robot with a strongly reduced
+expressive channel can meet this requirement: observers rate the low-cost
+Reachy Mini as warmer and more sociable when it expresses positive affect
+through head and antenna motion alone \cite{Rogel2026Reachy}.
+
+Between recognition and expression sits the \emph{behaviour-selection layer},
+which maps the perceived state of a person to the robot's reaction. In
+robotics practice, this layer is predominantly hand-crafted, typically as a
+finite-state machine or a behaviour tree
+\cite{Ghzouli2023BTSM,Iovino2022BTSurvey}. Learned policies, mainly reinforcement
+learning, have been explored, but they require a hand-designed reward and
+extensive interaction data and so far remain confined to research studies
+\cite{Akalin2021RL}. Hand-crafted rules are fast and predictable, but every
+situation has to be anticipated, and repeated situations lead to identical,
+mechanical reactions.
+
+Large language models (LLMs) offer a different approach. Used as
+tool-calling agents \cite{Yao2023ReAct}, they select an action from a textual
+description of the situation and the interaction history, and users prefer
+LLM-powered robots for social tasks \cite{Kim2024LLMHRI}. LLM inference,
+however, takes hundreds of milliseconds to seconds and needs considerable
+compute and memory \cite{Abstreiter2025Edge}, and even strong models do not
+always produce valid tool calls \cite{Patil2025BFCL}. On the embedded
+computers of small robots, this conflicts directly with the one-second
+requirement. Existing LLM-based HRI studies evaluate perceived quality with
+models running off the robot \cite{Kim2024LLMHRI}; a
+controlled comparison with rule-based behaviour selection under real-time and
+on-device constraints is missing.
 
 \textbf{Research question.}
 \begin{quote}
-\emph{Can a local LLM agent select emotion-responsive behaviour on the Reachy
-Mini in real time, and what does it offer over a rule-based controller?}
+\emph{Can an LLM agent running locally on robot or edge hardware select
+emotion-responsive behaviour within the one-second response window, and what
+does it offer over a rule-based controller?}
 \end{quote}
-The first part is answered by the agent's reaction latency relative to the
-one-second threshold, the second by its resource demand and by the validity,
-consistency and appropriateness of the chosen reactions.
 
-\textbf{Contribution.} We implement a behaviour architecture for the Reachy
-Mini \cite{ReachyMiniSDK} in which perception, action repertoire and motion
-execution are fixed and only the behaviour-selection layer is exchanged. We
-compare a rule-based controller with LLM-agent variants on identical, recorded
-input, first in simulation and then locally on the robot, and derive
-recommendations on when an agent is worth its cost.
+\textbf{Contribution.} This paper provides empirical grounding for the
+choice between hand-crafted and LLM-based behaviour selection in affective
+HRI. It isolates the behaviour-selection layer as the only variable, keeping
+perception, action repertoire and motion execution fixed, and measures what
+the timing requirement of social interaction permits on hardware a small
+social robot can carry. From this, it derives under which conditions an LLM
+agent, a hybrid or a distilled small model is worth its cost compared with
+rules.
+
+\textbf{Verification.} The first part of the research question is answered
+by the reaction latency of each configuration relative to the one- and
+two-second thresholds of \cite{Shiwa2008Respond}, measured on the robot's
+onboard computer and on an edge GPU. The second part is answered by the
+validity, run-to-run consistency and appropriateness of the selected
+reactions against an independent annotation, and by the resource demand of
+each configuration (Section~\ref{sec:eval}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{State of the Art}
 
-\subsection{Emotional Responsiveness in Social Robots}
-\begin{points}
-    \item Emotions expressed through head and antennas alone are perceived by observers \cite{Rogel2026Reachy}.
-    \item Response timing decisive; preference peaks at about 1\,s \cite{Shiwa2008Respond}.
-    \item Derived requirements: contingency, appropriateness, non-mechanical variability.
-\end{points}
+Behaviour selection for social robots can be realised with four families of
+methods: hand-crafted control structures, learned policies, LLM-based
+selection, and combinations of them. This section compares them by the
+requirements derived above, namely reaction within about one second,
+appropriate and non-mechanical reactions, and operation on the robot's own
+hardware. Table~\ref{tab:sota} summarises the comparison.
 
-\subsection{Rule-Based Behaviour Control}
-\begin{points}
-    \item State machines, behaviour trees, lookup tables.
-    \item Fast, deterministic, verifiable -- but rigid and repetitive.
-\end{points}
+\subsection{Hand-Crafted Control Structures}
+Finite-state machines (FSMs) have long been the standard for modelling robot
+behaviour; behaviour trees (BTs) organise the same logic hierarchically and
+are increasingly used in open-source robotics
+\cite{Ghzouli2023BTSM,Iovino2022BTSurvey}. Both are executed in
+microseconds, are deterministic and can be verified before deployment
+\cite{Iovino2022BTSurvey}. Their limitation is coverage: every situation and
+every variation of a reaction has to be designed by hand, so unforeseen
+situations are not handled and repeated situations produce identical
+reactions.
 
-\subsection{LLM Agents for Robot Behaviour}
-\begin{points}
-    \item LLMs as planners and tool-calling agents \cite{Yao2023ReAct}; local models via Ollama.
-    \item Open issues: latency, invalid actions, non-reproducibility, resource demand.
-    \item Research gap: no controlled comparison with rules for real-time emotional reactions on small hardware.
-\end{points}
+\subsection{Learned Policies}
+Reinforcement learning (RL) lets a social robot adapt its behaviour to a
+user, with rewards derived from task success, user feedback or affective
+signals \cite{Akalin2021RL}. Once trained, an RL policy is as fast as a rule
+table. However, it needs a reward function that captures what an appropriate
+social reaction is, and it learns from many interactions with real users;
+the reviewed studies therefore address narrow tasks in controlled settings
+\cite{Akalin2021RL}. For open emotion-responsive behaviour without a training
+population, RL is not applicable, which is why it is not used here.
+
+\subsection{LLM-Based Behaviour Selection}
+LLMs select actions in two ways. As \emph{agents}, they interleave reasoning
+with tool calls until an action is chosen \cite{Yao2023ReAct}. In
+\emph{single-call} selection, the model
+answers once with an output constrained to a schema or grammar, which
+guarantees syntactically valid actions at almost no extra cost
+\cite{Willard2023Guided}. In HRI, LLM-powered robots are preferred for
+social tasks, although verbose or slow responses reduce this preference
+\cite{Kim2024LLMHRI}. Cloud models add a network round trip and send
+interaction data to an external service. Locally, latency depends strongly on model size and
+hardware: on single-board computers, generation takes seconds, while edge
+GPUs reduce it considerably \cite{Abstreiter2025Edge}. Small models can be
+specialised for one task by knowledge distillation from a larger teacher
+\cite{Hinton2015Distill}; models with a few hundred million parameters
+trained for function calling now exist.\footnote{FunctionGemma 270M,
+\url{https://huggingface.co/google/functiongemma-270m-it}}
+
+\subsection{Hybrid Architectures}
+Dual-process architectures combine a fast, automatic layer with a slower,
+deliberative one, following the System~1/System~2 distinction of human
+cognition \cite{Umbrico2022Miriam}. Applied to behaviour selection,
+time-critical reactions can be handled by rules while the LLM handles
+situations where context matters, so that the latency of the LLM only
+affects reactions that tolerate it.
+
+\begin{table}[t]
+\caption{Behaviour-selection methods against the requirements of
+emotion-responsive HRI on robot hardware ($+$ met, $\circ$ partly, $-$ not met).}
+\label{tab:sota}
+\centering
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Method & $<$1\,s & Valid & Flexible & No training & On-device \\
+\midrule
+FSM / BT \cite{Ghzouli2023BTSM}      & $+$ & $+$ & $-$ & $+$ & $+$ \\
+RL policy \cite{Akalin2021RL}        & $+$ & $+$ & $\circ$ & $-$ & $+$ \\
+LLM agent \cite{Yao2023ReAct}        & $-$ & $\circ$ & $+$ & $+$ & $\circ$ \\
+LLM single call \cite{Willard2023Guided} & $\circ$ & $+$ & $+$ & $+$ & $\circ$ \\
+Hybrid \cite{Umbrico2022Miriam}      & $+$ & $+$ & $\circ$ & $+$ & $\circ$ \\
+Distilled SLM \cite{Hinton2015Distill} & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $+$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Research Gap}
+Table~\ref{tab:sota} shows that no single method meets all requirements.
+Rules meet the timing but not the flexibility, LLMs the flexibility but not
+the timing on robot hardware, and RL is ruled out by its training demand.
+Hybrid architectures and distilled small models are proposed as a way out,
+but they have not been measured against rules and full LLM agents under
+identical conditions. What is missing is therefore not a new selection
+method, but a controlled comparison of these candidates on the hardware a
+small social robot can use. Answering the research question requires
+exactly this comparison, which this paper provides.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Materials and Methods}
 
-\subsection{Platform}
+The method keeps everything except the behaviour-selection layer fixed, so
+that differences in the results can be attributed to that layer alone.
+
+\subsection{Platform and Hardware}
 \begin{points}
-    \item Reachy Mini: 6-DoF head, body rotation, two antennas, camera.
-    \item Phase 1: simulation on a laptop; phase 2: Reachy Mini Wireless, everything running on the onboard computer (Raspberry Pi CM4, 4\,GB RAM).
+    \item Reachy Mini \cite{Rogel2026Reachy}: 6-DoF head, body rotation, two antennas, camera.
+    \item Phase 1: simulation on a laptop, to develop and calibrate all configurations.
+    \item Phase 2a: Reachy Mini Wireless, everything on the onboard Raspberry Pi CM4 (4\,GB RAM, no GPU) -- the hardware a small social robot carries.
+    \item Phase 2b: LLM inference offloaded to an NVIDIA Jetson AGX Orin edge GPU next to the robot -- local, without cloud, but with GPU acceleration \cite{Abstreiter2025Edge}.
 \end{points}
 
 \subsection{System Architecture}
 \begin{points}
-    \item Perception (MediaPipe): face position, distance, four emotion classes, hand gestures.
-    \item Event filter: only relevant changes reach the behaviour selection.
-    \item Motion layer (50\,Hz): head keeps tracking the face; expressions are played without blocking.
+    \item Perception: face position, distance, emotion class, hand gestures.
+    \item Event filter: only relevant, debounced changes reach the behaviour selection.
+    \item Motion layer (50\,Hz): head keeps tracking the face; expressions are overlaid without blocking, so a slow selection never stops tracking.
     \item Shared action repertoire: seven emotional postures, wave, nod, no action.
 \end{points}
 
 \subsection{Compared Configurations}
+Each configuration represents one method family of Section~II that is
+applicable without a training population (Table~\ref{tab:sota}):
 \begin{points}
-    \item R: rule table (baseline).
-    \item A-TC: LangChain agent with one tool per action.
-    \item A-SO: single LLM call with schema-validated output.
-    \item H: rules for time-critical events, LLM for the rest.
-    \item Model: Qwen2.5 via Ollama; smaller variants on the robot.
+    \item R -- rule table: representative of hand-crafted FSM/BT control, the dominant practice (baseline) \cite{Ghzouli2023BTSM}.
+    \item A-TC -- tool-calling agent, one tool per action: the standard LLM-agent paradigm \cite{Yao2023ReAct}.
+    \item A-SO -- single LLM call with schema-constrained output: removes the agent loop and guarantees valid actions \cite{Willard2023Guided}.
+    \item H -- hybrid: rules for time-critical events (person appears, gesture, distance), A-SO for the rest \cite{Umbrico2022Miriam}.
+    \item D -- distilled small model: a 270M-parameter function-calling model (FunctionGemma) fine-tuned on decisions of a larger teacher model \cite{Hinton2015Distill}, small enough for the onboard computer.
+    \item Not compared: RL (no training population, Section~II-B) and cloud LLMs (network latency, interaction data leave the robot).
 \end{points}
 
 \subsection{Evaluation Design}
+\label{sec:eval}
 \begin{points}
-    \item Input A: scripted event sequence (decision only); input B: recorded and annotated video (end to end).
-    \item Ten interleaved runs per configuration, in simulation and on the robot.
-    \item Metrics: decision and end-to-end latency (median, p95, share above 1\,s); CPU/RAM; invalid actions; consistency across runs; appropriateness against annotation.
+    \item Input A -- scripted event sequence (36 events): decision only, without perception noise.
+    \item Input B -- recorded stimulus video with scripted emotions and gestures, replayed in real time: end to end.
+    \item No existing benchmark fits: HRI datasets such as UE-HRI annotate user engagement \cite{BenYoussef2017UEHRI}, not the appropriateness of a robot reaction to an emotional state; stimuli are therefore recorded and annotated by the authors.
+    \item Annotation: two authors independently define the set of acceptable reactions per event before seeing results; a large cloud LLM labels the same events from the symbolic event log (no video, so no personal image data leaves the system) as a third annotator \cite{Gilardi2023Annotation}; agreement reported as Cohen's $\kappa$ \cite{McHugh2012Kappa}.
+    \item Ten interleaved runs per configuration and input, per hardware phase.
+\end{points}
+
+\subsection{Metrics}
+\begin{points}
+    \item Latency: decision latency (event to action) and end-to-end latency (camera frame to motor command); median, 95th percentile and share of reactions above 1\,s and 2\,s \cite{Shiwa2008Respond}.
+    \item Validity: share of outputs that are an executable action with valid arguments, checked structurally as in the Berkeley Function Calling Leaderboard \cite{Patil2025BFCL}.
+    \item Consistency: agreement of the selected action across the ten runs per event, Fleiss' $\kappa$ \cite{McHugh2012Kappa}.
+    \item Appropriateness: share of reactions within the annotated acceptable set, and Cohen's $\kappa$ between configuration and annotation \cite{McHugh2012Kappa}.
+    \item Resources: CPU, RAM and (on the Jetson) GPU load; whether perception still holds 30\,fps next to the selection.
+\end{points}
+
+\subsection{Implementation Details}
+\begin{points}
+    \item Robot control via the Reachy Mini SDK\footnote{\url{https://github.com/pollen-robotics/reachy_mini}}; simulation in MuJoCo\footnote{\url{https://mujoco.org}}.
+    \item Perception with MediaPipe face landmarks and gesture recognition.\footnote{\url{https://ai.google.dev/edge/mediapipe}}
+    \item A-TC built with LangChain\footnote{\url{https://github.com/langchain-ai/langchain}}; local inference via Ollama\footnote{\url{https://ollama.com}}; teacher and agent models from the Qwen2.5 family.
+    \item Agent receives a textual state description plus the last five events, no images; tools enqueue the action directly (no second LLM call).
 \end{points}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Results}
 \textit{Planned content -- measurements pending.}
 \begin{points}
-    \item Latency per configuration, simulation vs.\ robot.
-    \item Resource demand; does the agent fit on the robot next to perception?
+    \item Latency per configuration on CM4 and Jetson against the 1\,s/2\,s thresholds.
+    \item Resource demand; does the selection fit on the robot next to perception?
     \item Validity, consistency and appropriateness of the reactions.
     \item Discussion: trade-off between latency/cost and flexibility; limitations.
 \end{points}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Summary and Outlook}
-\begin{points}
-    \item Answer to the research question and recommendation.
-    \item Outlook: user study, latency reduction, memory across interactions.
-\end{points}
+
+This paper examines whether a locally running LLM agent can select
+emotion-responsive behaviour for a social robot within the one-second
+response window, and what it offers over rules. It compares a rule table, a
+tool-calling agent, a single-call LLM, a hybrid and a distilled small model
+with identical perception and actions on the Reachy Mini's onboard computer
+and on an edge GPU, measuring latency, validity, consistency,
+appropriateness and resource demand.
+
+Future work will complete the measurements and test the resulting
+recommendation in a user study with established questionnaires,
+to check whether the measured differences are also perceived by users.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\small

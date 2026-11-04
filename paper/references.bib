@@ -1,18 +1,52 @@
-% Literatur -- Reachy Mini: Rule-Based vs. LLM Agent
-% Alle Eintraege sind frei zugaenglich (Open Access, arXiv, Autorenmanuskript
-% im Repositorium, offene Verlagsfassung oder ACM Digital Library, die seit
-% Januar 2026 vollstaendig frei lesbar ist). Geprueft am 24.09.2026; die URL
-% zeigt jeweils auf die frei lesbare Fassung.
+% Literatur -- Reachy Mini: Rules vs. LLM Agent
+% Alle 19 Eintraege sind frei zugaenglich (arXiv, PubMed Central, Open-Access-
+% Zeitschrift, Autorenfassung im Repositorium oder ACM Digital Library, die seit
+% Januar 2026 vollstaendig frei lesbar ist). Die URL zeigt jeweils auf die frei
+% lesbare Fassung. Geprueft am 04.11.2026.
+% Software (SDK, MuJoCo, MediaPipe, LangChain, Ollama, FunctionGemma) steht als
+% Fussnote im Text, nicht hier.
 
-% --- Soziale Robotik / Psychologie -------------------------------------------
+% --- Social robotics / HRI ---------------------------------------------------
 
-@article{Rogel2026Reachy,
-  title   = {Emotional Expression in Low-Degrees-of-Freedom Robots:
-             Assessing Perception with {Reachy Mini}},
-  author  = {Rogel, Amit and Yadollahi, Elmira and Laban, Guy},
-  journal = {arXiv preprint arXiv:2605.12786},
-  year    = {2026},
-  url     = {https://arxiv.org/abs/2605.12786}
+@article{Fong2003Survey,
+  title   = {A Survey of Socially Interactive Robots},
+  author  = {Fong, Terrence and Nourbakhsh, Illah and Dautenhahn, Kerstin},
+  journal = {Robotics and Autonomous Systems},
+  volume  = {42},
+  number  = {3--4},
+  pages   = {143--166},
+  year    = {2003},
+  url     = {https://uhra.herts.ac.uk/id/eprint/12104/1/101193.pdf}
+}
+
+@article{Goodrich2007HRI,
+  title   = {Human-Robot Interaction: A Survey},
+  author  = {Goodrich, Michael A. and Schultz, Alan C.},
+  journal = {Foundations and Trends in Human-Computer Interaction},
+  volume  = {1},
+  number  = {3},
+  pages   = {203--275},
+  year    = {2007},
+  url     = {https://scholarsarchive.byu.edu/facpub/940}
+}
+
+@misc{IFR2026Service,
+  title        = {World Robotics 2026 -- Service Robots: Executive Summary},
+  author       = {{International Federation of Robotics}},
+  howpublished = {\url{https://ifr.org/img/worldrobotics/Executive_Summary_WR_2026_-_Service_Robots.pdf}},
+  note         = {Accessed: 2026-11-04},
+  year         = {2026}
+}
+
+@article{Spezialetti2020Emotion,
+  title   = {Emotion Recognition for Human-Robot Interaction: Recent Advances
+             and Future Perspectives},
+  author  = {Spezialetti, Matteo and Placidi, Giuseppe and Rossi, Silvia},
+  journal = {Frontiers in Robotics and AI},
+  volume  = {7},
+  pages   = {532279},
+  year    = {2020},
+  url     = {https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2020.532279/full}
 }
 
 @inproceedings{Shiwa2008Respond,
@@ -24,6 +58,66 @@
   url       = {https://dl.acm.org/doi/10.1145/1349822.1349843}
 }
 
+@article{Rogel2026Reachy,
+  title   = {Emotional Expression in Low-Degrees-of-Freedom Robots:
+             Assessing Perception with {Reachy Mini}},
+  author  = {Rogel, Amit and Yadollahi, Elmira and Laban, Guy},
+  journal = {arXiv preprint arXiv:2605.12786},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2605.12786}
+}
+
+% --- Verhaltenssteuerung -----------------------------------------------------
+
+@article{Ghzouli2023BTSM,
+  title   = {Behavior Trees and State Machines in Robotics Applications},
+  author  = {Ghzouli, Razan and Berger, Thorsten and Johnsen, Einar Broch and
+             W{\k{a}}sowski, Andrzej and Dragule, Swaib},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {49},
+  number  = {9},
+  pages   = {4243--4267},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2208.04211}
+}
+
+@article{Iovino2022BTSurvey,
+  title   = {A Survey of Behavior Trees in Robotics and {AI}},
+  author  = {Iovino, Matteo and Scukins, Edvards and Styrud, Jonathan and
+             {\"O}gren, Petter and Smith, Christian},
+  journal = {Robotics and Autonomous Systems},
+  volume  = {154},
+  pages   = {104096},
+  year    = {2022},
+  url     = {https://arxiv.org/abs/2005.05842}
+}
+
+@article{Akalin2021RL,
+  title   = {Reinforcement Learning Approaches in Social Robotics},
+  author  = {Akalin, Neziha and Loutfi, Amy},
+  journal = {Sensors},
+  volume  = {21},
+  number  = {4},
+  pages   = {1292},
+  year    = {2021},
+  url     = {https://pmc.ncbi.nlm.nih.gov/articles/PMC7918897}
+}
+
+@article{Umbrico2022Miriam,
+  title   = {A Mind-inspired Architecture for Adaptive {HRI}},
+  author  = {Umbrico, Alessandro and De Benedictis, Riccardo and
+             Fracasso, Francesca and Cesta, Amedeo and Orlandini, Andrea and
+             Cortellessa, Gabriella},
+  journal = {International Journal of Social Robotics},
+  volume  = {15},
+  number  = {3},
+  pages   = {371--391},
+  year    = {2023},
+  url     = {https://pmc.ncbi.nlm.nih.gov/articles/PMC9309454}
+}
+
+% --- LLMs --------------------------------------------------------------------
+
 @inproceedings{Yao2023ReAct,
   title     = {{ReAct}: Synergizing Reasoning and Acting in Language Models},
   author    = {Yao, Shunyu and Zhao, Jeffrey and Yu, Dian and Du, Nan and
@@ -33,26 +127,86 @@
   url       = {https://arxiv.org/abs/2210.03629}
 }
 
-@misc{LangChain,
-  title        = {{LangChain}},
-  author       = {{LangChain}},
-  howpublished = {\url{https://github.com/langchain-ai/langchain}},
-  note         = {Accessed: 2026-09-24},
-  year         = {2026}
+@inproceedings{Kim2024LLMHRI,
+  title     = {Understanding Large-Language Model ({LLM})-powered Human-Robot Interaction},
+  author    = {Kim, Callie Y. and Lee, Christine P. and Mutlu, Bilge},
+  booktitle = {Proc. ACM/IEEE Int. Conf. Human-Robot Interaction (HRI)},
+  pages     = {371--380},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2401.03217}
 }
 
-@misc{Ollama,
-  title        = {{Ollama}},
-  author       = {{Ollama}},
-  howpublished = {\url{https://github.com/ollama/ollama}},
-  note         = {Accessed: 2026-09-24},
-  year         = {2026}
+@article{Willard2023Guided,
+  title   = {Efficient Guided Generation for Large Language Models},
+  author  = {Willard, Brandon T. and Louf, R{\'e}mi},
+  journal = {arXiv preprint arXiv:2307.09702},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2307.09702}
 }
 
-@misc{ReachyMiniSDK,
-  title        = {{Reachy Mini} {SDK}},
-  author       = {{Pollen Robotics}},
-  howpublished = {\url{https://github.com/pollen-robotics/reachy_mini}},
-  note         = {Accessed: 2026-09-24},
-  year         = {2026}
+@article{Abstreiter2025Edge,
+  title   = {Sometimes Painful but Promising: Feasibility and Trade-offs of
+             On-Device Language Model Inference},
+  author  = {Abstreiter, Maximilian and Tarkoma, Sasu and Morabito, Roberto},
+  journal = {ACM Transactions on Embedded Computing Systems},
+  year    = {2025},
+  url     = {https://arxiv.org/abs/2503.09114}
+}
+
+@article{Hinton2015Distill,
+  title   = {Distilling the Knowledge in a Neural Network},
+  author  = {Hinton, Geoffrey and Vinyals, Oriol and Dean, Jeff},
+  journal = {arXiv preprint arXiv:1503.02531},
+  note    = {NIPS 2014 Deep Learning Workshop},
+  year    = {2015},
+  url     = {https://arxiv.org/abs/1503.02531}
+}
+
+% --- Evaluation --------------------------------------------------------------
+
+@inproceedings{BenYoussef2017UEHRI,
+  title     = {{UE-HRI}: A New Dataset for the Study of User Engagement in
+               Spontaneous Human-Robot Interactions},
+  author    = {Ben-Youssef, Atef and Clavel, Chlo{\'e} and Essid, Slim and
+               Bilac, Miriam and Chamoux, Marine and Lim, Angelica},
+  booktitle = {Proc. 19th ACM Int. Conf. Multimodal Interaction (ICMI)},
+  pages     = {464--472},
+  year      = {2017},
+  url       = {https://slimessid.github.io/research/assets/pdf/AB_ICMI-17.pdf}
+}
+
+@article{Gilardi2023Annotation,
+  title   = {{ChatGPT} Outperforms Crowd Workers for Text-Annotation Tasks},
+  author  = {Gilardi, Fabrizio and Alizadeh, Meysam and Kubli, Ma{\"e}l},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume  = {120},
+  number  = {30},
+  pages   = {e2305016120},
+  year    = {2023},
+  url     = {https://pmc.ncbi.nlm.nih.gov/articles/PMC10372638}
+}
+
+@inproceedings{Patil2025BFCL,
+  title     = {The {Berkeley Function Calling Leaderboard} ({BFCL}): From Tool
+               Use to Agentic Evaluation of Large Language Models},
+  author    = {Patil, Shishir G. and Mao, Huanzhi and Yan, Fanjia and
+               Ji, Charlie Cheng-Jie and Suresh, Vishnu and Stoica, Ion and
+               Gonzalez, Joseph E.},
+  booktitle = {Proc. 42nd Int. Conf. Machine Learning (ICML)},
+  series    = {PMLR},
+  volume    = {267},
+  pages     = {48371--48392},
+  year      = {2025},
+  url       = {https://proceedings.mlr.press/v267/patil25a.html}
+}
+
+@article{McHugh2012Kappa,
+  title   = {Interrater Reliability: The Kappa Statistic},
+  author  = {McHugh, Mary L.},
+  journal = {Biochemia Medica},
+  volume  = {22},
+  number  = {3},
+  pages   = {276--282},
+  year    = {2012},
+  url     = {https://pmc.ncbi.nlm.nih.gov/articles/PMC3900052}
 }
