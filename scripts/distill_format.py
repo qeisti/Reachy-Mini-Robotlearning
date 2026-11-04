@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     from transformers import AutoTokenizer
 
-    path = sys.argv[1] if len(sys.argv) > 1 else "experiments/distill/probe.jsonl"
+    path = sys.argv[1] if len(sys.argv) > 1 else "experiments/distill/dataset.jsonl"
     tok = AutoTokenizer.from_pretrained("google/functiongemma-270m-it")
     ok = True
     for i, line in enumerate(open(path, encoding="utf-8")):

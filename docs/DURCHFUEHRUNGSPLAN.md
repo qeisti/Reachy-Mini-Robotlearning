@@ -18,7 +18,7 @@ Konventionen:
 * Ergebnis-Ordner heißen `experiments/results/<datum>_<tag>`; die Tags unten (`sim_…`,
   `robot_…`) nicht ändern, dann passt der Vergleich am Ende.
 
-Details zur Datenerhebung (Drehbuch, Annotation, Statistik): [docs/DATENERHEBUNG.md](docs/DATENERHEBUNG.md)
+Details zur Datenerhebung (Drehbuch, Annotation, Statistik): [DATENERHEBUNG.md](DATENERHEBUNG.md)
 
 ---
 
@@ -81,7 +81,7 @@ conda activate reachy_mini
 
 ```powershell
 # a) Ausdruecke in der Sim abspielen
-python scripts/test_expressions.py
+python scripts/play_expressions.py
 
 # b) Nur Entscheidungen, deterministisch vs. Agent (ohne Kamera)
 python scripts/run.py --policy rule agent_tc agent_so hybrid --source experiments/scenarios/demo.json --robot mock --tag sim_test
@@ -219,7 +219,7 @@ cd /home/pollen/Reachy-Mini-Robotlearning
 PY=/venvs/apps_venv/bin/python
 
 # a) Ausdruecke am echten Roboter
-$PY scripts/test_expressions.py
+$PY scripts/play_expressions.py
 
 # b) Entscheidungen ohne Kamera, deterministisch vs. Agent
 $PY scripts/run.py --policy rule agent_so --source experiments/scenarios/demo.json --robot mock --model qwen2.5:1.5b --tag robot_test

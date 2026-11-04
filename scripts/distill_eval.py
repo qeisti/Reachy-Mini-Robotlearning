@@ -67,7 +67,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--backend", choices=["hf", "ollama"], required=True)
     ap.add_argument("--model", required=True, help="Ollama-Name oder Pfad zum HF-Checkpoint")
-    ap.add_argument("--data", type=Path, default=Path("experiments/distill/data.jsonl"))
+    ap.add_argument("--data", type=Path, default=Path("experiments/distill/dataset.jsonl"))
     ap.add_argument("--split", default="test", choices=["train", "val", "test"])
     ap.add_argument("--out", type=Path, help="optional: fester Pfad fuer das Log (sonst automatisch in --log-dir)")
     ap.add_argument("--log-dir", type=Path, default=Path("experiments/distill/logs"))

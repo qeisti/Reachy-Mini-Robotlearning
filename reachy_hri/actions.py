@@ -2,7 +2,7 @@
 
 Die Regeln waehlen daraus per Tabelle, der Agent bekommt genau diese Namen als
 Tools bzw. als erlaubte Werte im Schema. Die Posen stammen aus dem frueheren
-``emotions.py`` (siehe ``legacy/``).
+Einzelskript ``emotions.py``.
 
 Ein Ausdruck besteht aus Keyframes (Antennenwinkel in Grad + Kopf-Offsets), die
 der Motion-Layer nicht-blockierend abspielt, waehrend der Kopf weiter dem

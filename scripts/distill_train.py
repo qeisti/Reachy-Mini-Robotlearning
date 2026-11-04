@@ -10,7 +10,7 @@ Tool-Aufruf berechnet, nicht auf den Prompt.
 
 Laeuft in der Conda-Umgebung ``distill`` (PyTorch mit CUDA):
 
-    python scripts/distill_train.py --data experiments/distill/data.jsonl
+    python scripts/distill_train.py --data experiments/distill/dataset.jsonl
 
 Live mitschauen (zweites Terminal):
 
@@ -123,7 +123,7 @@ class TargetOnlyTrainer(Trainer):
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--data", type=Path, default=Path("experiments/distill/data.jsonl"))
+    ap.add_argument("--data", type=Path, default=Path("experiments/distill/dataset.jsonl"))
     ap.add_argument("--out", type=Path, default=Path("experiments/distill/model"))
     ap.add_argument("--epochs", type=float, default=3)
     ap.add_argument("--lr", type=float, default=5e-5)

@@ -11,10 +11,10 @@ im Betrieb bekommt.
 Beispiele:
 
     # Probelauf: 20 Episoden
-    python scripts/distill_generate.py --episodes 20 --out experiments/distill/probe.jsonl
+    python scripts/distill_generate.py --episodes 20 --out experiments/distill/probe.jsonl   # nicht im Git
 
     # Voller Datensatz
-    python scripts/distill_generate.py --episodes 400 --out experiments/distill/data.jsonl
+    python scripts/distill_generate.py --episodes 400 --out experiments/distill/dataset_raw.jsonl
 """
 
 from __future__ import annotations
@@ -92,7 +92,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--episodes", type=int, default=20)
     ap.add_argument("--teacher", default="qwen2.5:14b", help="Ollama-Modell des Lehrers")
-    ap.add_argument("--out", type=Path, default=Path("experiments/distill/probe.jsonl"))
+    ap.add_argument("--out", type=Path, default=Path("experiments/distill/dataset_raw.jsonl"))
     ap.add_argument("--seed", type=int, default=42)
     args = ap.parse_args()
 

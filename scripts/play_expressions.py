@@ -1,7 +1,7 @@
 """Spielt Ausdruecke aus dem Aktionsraum am Roboter/in der Sim ab.
 
-    python scripts/test_expressions.py            # alle
-    python scripts/test_expressions.py winken     # nur einer
+    python scripts/play_expressions.py            # alle
+    python scripts/play_expressions.py winken     # nur einer
 """
 
 import sys

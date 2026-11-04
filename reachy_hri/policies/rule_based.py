@@ -1,7 +1,7 @@
 """R – regelbasierte Verhaltensauswahl (Baseline).
 
-Die Tabellen entsprechen dem Verhalten aus ``legacy/facedetection3.py`` und
-``legacy/handdetection.py``: Freude spiegeln, auf Wut aengstlich, auf
+Die Tabellen entsprechen dem Verhalten der frueheren Einzelskripte
+``facedetection3.py`` und ``handdetection.py``: Freude spiegeln, auf Wut aengstlich, auf
 Ueberraschung neugierig reagieren; nah -> Angst, mittel -> vorsichtig;
 Winken erwidern.
 """

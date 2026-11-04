@@ -1,6 +1,6 @@
 """Gesicht: Blickziel, Distanz und Emotion aus MediaPipe FaceLandmarker.
 
-Uebernommen aus ``legacy/facedetection3.py``: ein Rechteck aus vier Landmarks
+Uebernommen aus dem frueheren Einzelskript ``facedetection3.py``: ein Rechteck aus vier Landmarks
 (aeussere Augenwinkel, Mundwinkel) liefert Mittelpunkt (Blickziel) und Flaeche
 (Distanz). Die Emotion kommt aus den Blendshape-Koeffizienten.
 """

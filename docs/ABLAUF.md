@@ -14,7 +14,7 @@ flowchart TD
     G -- ja --> I["1 · Trockentest ohne Kamera/Roboter<br/>python scripts/run.py --policy rule agent_tc<br/>--source experiments/scenarios/demo.json --robot mock"]
     I --> J{"Agent-Zeilen ohne FEHLER?"}
     J -- nein --> K["Ollama-App läuft?<br/>Modellname korrekt?"] --> I
-    J -- ja --> L["2 · Ausdrücke in der Sim<br/>python scripts/test_expressions.py"]
+    J -- ja --> L["2 · Ausdrücke in der Sim<br/>python scripts/play_expressions.py"]
     L --> M["3 · Live mit Webcam<br/>python scripts/run.py --policy rule<br/>python scripts/run.py --policy agent_tc"]
     M --> N{"Verhalten ok?"}
     N -- nein --> O["Anpassen: reachy_hri/config.py,<br/>policies/rule_based.py, policies/agent.py"] --> M
@@ -29,7 +29,7 @@ flowchart TD
 ## Hinweise
 
 * **Ollama** läuft unter Windows als App im Hintergrund (Tray-Symbol). Test: `ollama run qwen2.5:3b "hallo"`.
-* **Daemon** muss laufen, bevor `run.py` oder `test_expressions.py` startet. Ohne Daemon: `--robot mock`.
+* **Daemon** muss laufen, bevor `run.py` oder `play_expressions.py` startet. Ohne Daemon: `--robot mock`.
 * **Webcam** nicht gefunden: `--source webcam:1` (oder 2) probieren.
 * **Beenden**: im Videofenster `q`, sonst `Strg+C`.
 * **Anderes Modell**: `--model qwen2.5:7b` (vorher `ollama pull qwen2.5:7b`).

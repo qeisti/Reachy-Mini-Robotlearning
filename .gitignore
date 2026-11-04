@@ -1,7 +1,5 @@
 __pycache__/
 *.pyc
-vosk-model-small-de-0.15/
-vosk-model-small-de-0.15.zip
 SETUP.md
 models/vosk-model-small-de-0.15/
 models/vosk-model-small-de-0.15.zip
@@ -21,6 +19,3 @@ paper/*.fls
 paper/*.log
 paper/*.out
 paper/*.synctex.gz
-MVSR_Paper_Template_Englisch/
-MVSR_Paper_Template_Englisch.zip
-papert.zip

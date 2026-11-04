@@ -1,6 +1,6 @@
 """Hand-Gesten: MediaPipe GestureRecognizer + eigener Winken-Detektor.
 
-Uebernommen aus ``legacy/handdetection.py``.
+Uebernommen aus dem frueheren Einzelskript ``handdetection.py``.
 """
 
 from __future__ import annotations

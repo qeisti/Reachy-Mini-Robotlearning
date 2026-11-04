@@ -13,7 +13,7 @@ identisch, nur die Verhaltensauswahl wird ausgetauscht:
 
 | Policy     | Paper | Beschreibung |
 |------------|-------|--------------|
-| `rule`     | R     | Regeltabelle (Baseline, Verhalten aus `legacy/facedetection3.py` + `handdetection.py`) |
+| `rule`     | R     | Regeltabelle (Baseline, Verhalten der ursprünglichen Einzelskripte `facedetection3.py` + `handdetection.py`) |
 | `agent_tc` | A-TC  | LangChain-Agent (`create_agent`) mit Tools, lokales LLM über Ollama |
 | `agent_so` | A-SO  | ein LLM-Aufruf mit Structured Output (Pydantic-Schema), kein Agent-Loop |
 | `hybrid`   | H     | Reflexe (Person erscheint, Geste, Distanz) per Regel, der Rest per A-SO |
@@ -34,7 +34,7 @@ Kamera/Video ─► Wahrnehmung (MediaPipe, 30 fps) ─► EventDetector ─► 
 * Die Tools des Agenten legen die Aktion **sofort** in die Motion-Queue
   (`return_direct=True`, also kein zweiter LLM-Aufruf für eine Abschlussantwort).
 
-**Schritt-für-Schritt-Plan mit allen Terminal-Befehlen (Simulation → Reachy Mini): [DURCHFUEHRUNGSPLAN.md](DURCHFUEHRUNGSPLAN.md)**
+**Schritt-für-Schritt-Plan mit allen Terminal-Befehlen (Simulation → Reachy Mini): [docs/DURCHFUEHRUNGSPLAN.md](docs/DURCHFUEHRUNGSPLAN.md)**
 
 ## Ordnerstruktur
 
@@ -54,24 +54,32 @@ scripts/
   run.py               Policies starten / Experimente fahren
   compare.py           Auswertung: Tabellen, Plots (PDF für das Paper), HTML-Report
   record_stimulus.py   Stimulus-Video aufnehmen
-  test_expressions.py  Ausdrücke am Roboter/in der Sim durchspielen
+  play_expressions.py  Ausdrücke am Roboter/in der Sim durchspielen
+  distill_*.py         Destillation: Daten erzeugen (generate), Regeln anwenden (apply_rules),
+                       trainieren (train), auswerten (eval), Prompt-Format (format)
 experiments/
-  scenarios/demo.json  skriptierte Ereignisfolge (reiner Entscheidungstest ohne Kamera)
+  scenarios/demo.json  kurze skriptierte Ereignisfolge (Demo, Tests)
+  scenarios/standard.json  36 Ereignisse für die Hauptmessung (Ebene A)
   annotations_template.json   Vorlage: welche Reaktion ist wann angemessen
   stimuli/             hier das aufgenommene Stimulus-Video ablegen (nicht im Git)
   results/             Messergebnisse (nicht im Git)
+  distill/             Destillationsdaten (dataset_raw = Lehrer-Antworten, dataset = nach
+                       Regelabgleich, fürs Training), Modelfile, Trainings-/Eval-Logs
 models/                MediaPipe-Modelle (+ Vosk-Modell, nicht im Git)
-legacy/                die ursprünglichen Einzelskripte (lauffähig aus legacy/ heraus)
+paper/                 Paper (LaTeX, IEEEtran), references.bib, PDF
 tests/                 pytest, inkl. Fake-LLM – läuft ohne Roboter und ohne Ollama
 docs/ABLAUF.md         Flowchart: Programm Schritt für Schritt ausführen
 docs/DATENERHEBUNG.md  Messprotokoll: wie aussagekräftige Daten für den Vergleich entstehen
+docs/DURCHFUEHRUNGSPLAN.md  alle Terminal-Befehle: Simulation → Reachy Mini
 ```
 
 ## Installation
 
 ```bash
-conda activate reachy_mini            # Python 3.12, siehe SETUP.md
+python3.12 -m venv .venv && source .venv/bin/activate   # Python 3.12 (nicht 3.14: PyGObject bricht)
 pip install -r requirements.txt
+pip install mujoco==3.3.0             # für den Simulator (--sim), wird nicht automatisch installiert
+sudo apt install gir1.2-gst-plugins-base-1.0   # GStreamer-Typelibs (GstApp) für den Daemon
 
 # Lokales LLM
 # Ollama installieren: https://ollama.com/download

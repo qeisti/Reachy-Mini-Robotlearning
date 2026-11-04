@@ -1,5 +1,5 @@
 {
-  "source": "experiments/distill/data_v2.jsonl",
+  "source": "experiments/distill/dataset_raw.jsonl",
   "examples": 3011,
   "label_sources": {
     "rule": 2727,

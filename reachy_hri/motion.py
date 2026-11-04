@@ -1,8 +1,8 @@
 """Motion-Layer: Kopf folgt dem Gesicht und spielt Ausdruecke nicht-blockierend ab.
 
 Laeuft in einem eigenen Thread mit fester Rate (``config.MOTION_RATE_HZ``) und
-setzt bei jedem Tick per ``set_target`` die Zielpose (wie in
-``legacy/facedetection3.py``). Ausdruecke werden als Keyframe-Folge mit
+setzt bei jedem Tick per ``set_target`` die Zielpose (wie im
+frueheren Einzelskript ``facedetection3.py``). Ausdruecke werden als Keyframe-Folge mit
 Minimum-Jerk-Interpolation ueberlagert. Dadurch
 
 * laeuft das Tracking immer weiter, egal wie lange die Policy nachdenkt, und

@@ -15,8 +15,8 @@ das finale Ziel.
 Aeltere Dateien ohne ``event_data`` werden ueber Seed/Episoden aus ``<stem>.stats.json``
 rekonstruiert; die Uebereinstimmung mit den Zeilen wird geprueft.
 
-    python scripts/distill_apply_rules.py experiments/distill/data_v2.jsonl \
-        --out experiments/distill/data_v2_rules.jsonl
+    python scripts/distill_apply_rules.py experiments/distill/dataset_raw.jsonl \
+        --out experiments/distill/dataset.jsonl
 """
 
 from __future__ import annotations
@@ -52,7 +52,7 @@ def events_for(rows: list[dict], path: Path) -> list[Event]:
     if all("event_data" in r for r in rows):
         return [Event(0, r["event_type"], 0.0, 0.0, None, r["event_data"], r.get("event_state", {}))
                 for r in rows]
-    stats = json.loads(path.with_suffix(".stats.json").read_text(encoding="utf-8"))   # data.jsonl -> data.stats.json
+    stats = json.loads(path.with_suffix(".stats.json").read_text(encoding="utf-8"))   # dataset_raw.jsonl -> dataset_raw.stats.json
     rng = random.Random(stats["seed"])
     events = [e for _ in range(stats["episodes"]) for e in simulate_episode(rng)]
     if stats.get("skipped"):

@@ -1,5 +1,5 @@
 # Destilliertes FunctionGemma (270M) fuer Reachy Mini, v2: ein Tool pro Aktion, Regeln aus
-# rule_based.py durchgesetzt (data_v2_rules.jsonl). Lehrer fuer freie Sprache: qwen2.5:14b
+# rule_based.py durchgesetzt (dataset.jsonl). Lehrer fuer freie Sprache: qwen2.5:14b
 #
 #   python ~/llama.cpp/convert_hf_to_gguf.py experiments/distill/model_v2/final \
 #       --outtype q8_0 --outfile experiments/distill/reachy-fg.gguf
